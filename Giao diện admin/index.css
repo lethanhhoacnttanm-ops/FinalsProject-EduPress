@@ -1,0 +1,187 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    
+}
+
+
+/*1. Form login admin */
+
+.main-container-admin{
+    
+   
+    height: 100vh;
+    width: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+   
+
+    .admin__form-login{
+    width: 500px;
+    height: auto ;
+    background-color: #FFFFFF; 
+    
+    border-radius: 8px;
+    padding: 12px 60px;
+
+    text-align: center;
+
+    box-shadow: 0px 0px 20px  rgb(14, 17, 12);
+
+    
+    /*  <!-- 1. Title --> */
+    .login-title{
+
+        .login-title__logo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 5px;
+
+            margin: 10px 5px;
+
+        }
+    }
+
+    /* <!-- 2. Email --> */
+    .login-email{
+        display: flex;
+        justify-content: space-between;
+        align-items: center ;
+        width: auto;
+
+        margin:  20px 10px;
+
+        border: 2px solid rgb(81, 106, 61);
+
+        input{
+            background-color: transparent;
+            width: 700px;
+            padding: 8px;
+            border: none;
+            outline: none;
+        }
+
+        i{
+            margin: 8px;
+        }
+
+    }
+
+    /* <!-- 3. PASSWORD --> */
+    .login-password{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: auto;
+
+        margin: 20px 10px;
+        
+        border: 2px solid rgb(81,106,61);
+
+        input{
+            background-color: transparent;
+            width: 700px;
+            padding: 8px;
+            border: none;
+            outline: none;
+
+
+        }
+
+        i{
+            margin: 8px
+        }
+    }
+
+    /* <!-- 4. Authentication --> */
+    .login-authentication{
+        display: flex;
+        justify-content: space-between;
+        align-items: center ;
+
+        width: auto;
+
+        margin: 20px 10px;
+
+        .login-authentication__checkbox{
+            display:  flex;
+            justify-content: space-between;
+            align-items: center ;
+
+            gap: 10px;
+
+            input{
+                cursor: pointer;
+                
+            }
+
+            
+        }
+
+        .login-authentication__fgq a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+
+
+    /* <!-- 5. Btn-login-active --> */
+
+    .login-btn-login{
+        width: auto;
+        margin: 20px 10px;
+
+        button{
+            background-color: rgb(81,106,61) ;
+            width:150px;
+            padding: 8px;
+            outline: none;
+
+            color: #fdfdfd;
+
+            border: none;
+
+            font-weight: 400;
+
+            cursor: pointer;
+        }
+    }
+
+
+    /* <!-- 6. Go to the registration form --> */
+    .login-new-account{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 5px;
+
+        margin: 20px 10px;
+
+        p, i{
+            color: #000000
+        }
+
+        button{
+            background-color: transparent;
+            padding: 8px;
+
+            color: #0c0909;
+
+            cursor: pointer;
+        }
+    }
+
+    }
+    
+
+}
+
