@@ -1,0 +1,355 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container-homepage{
+    width: auto;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 20% 80%;
+
+    overflow: hidden;
+}
+
+/* <!-- 1. First div homepage --> */
+
+.first-container-homepage{
+    background-color:rgb(34, 45, 50);
+    height: 100vh;
+    grid-column: 200px;
+
+    scrollbar-width: none; /* em sài gemeni đoạn này để hiểu về cách giấu thanh scroll-bar ạ*/
+    overflow-y: hidden; 
+    transition: overflow 0.3s;
+
+    
+
+    .div-sticky{
+
+        position: sticky;
+
+        top: 0;
+
+        
+
+        .homepage__logo{
+    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(54, 127, 169) ;
+    
+            gap : 14px;
+            line-height: 50px;
+    
+    
+            p{
+                color: white;
+                font-size: 1.5rem;
+            }
+    
+            img{
+                font-size: 700px;
+            }
+        }
+    
+        .homepage-active{
+            padding: 10px;
+            display: flex;
+            justify-content: left;
+            align-items: center ;
+
+            background-color: rgb(18, 13, 13);
+    
+            gap: 20px;
+            img{
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+            }
+    
+            h2, p{
+                color: white;
+            }
+    
+            
+        }
+    }
+
+
+
+    .homepage__list-vertical{
+
+        margin: 5px;
+
+        line-height: 50px;
+        .list-vertical{
+            padding: 7px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap : 7px;
+
+            cursor: pointer;
+
+            i{
+                color: white;
+
+                transition: transform 0.2s ease
+            }
+
+
+            .list-vertical__edit{
+
+                display: flex;
+                justify-content: left;
+                align-items: center;
+
+                gap : 10px;
+
+                p{
+                color: white;
+                }
+
+                i{
+                    color: white;
+                }
+            }
+        }
+        /* Bản gốc active chung cho list-vertical */
+        /* .list-vertical:active{
+            border-left: 4px solid rgb(78, 145, 182);
+            background-color: rgba(41, 37, 37, 0.6);
+            
+        }
+        
+        .list-vertical:active > i{
+            
+            transform: rotate(0.5turn);
+        } */
+
+        /* bản copy cho từng mục này  */
+
+
+        /* 1. Course Provider Management - active */
+        .cpm:active{
+            border-left: 4px solid rgb(78, 145, 182);
+            background-color: rgba(41, 37, 37, 0.6);
+        }
+
+        .cpm:active > i{
+            transform: rotate(0.5turn);
+            color: red;
+        }
+
+        /* 2. Browse new supplier - active */
+        .bns:active{
+            border-left: 4px solid rgb(78, 145, 182);
+            background-color: rgba(41, 37, 37, 0.6);
+        }
+
+        .bns:active > i{
+            transform: rotate(0.5turn);
+            color: red;
+        }
+
+        /* 3. Course Management - active */
+        .cm:active{
+            border-left: 4px solid rgb(78, 145, 182);
+            background-color: rgba(41, 37, 37, 0.6);
+        }
+
+        .cm:active > i{
+            transform: rotate(0.5turn);
+            color: red;
+        }
+
+        /* 4. Browse new course - active */
+        .bnc:active{
+            border-left: 4px solid rgb(78, 145, 182);
+            background-color: rgba(41, 37, 37, 0.6);
+        }
+
+        .bnc:active > i{
+            transform: rotate(0.5turn);
+            color: red;
+        }
+
+        /* 5. Course content management - active */
+        .ccm:active{
+            border-left: 4px solid rgb(78, 145, 182);
+            background-color: rgba(41, 37, 37, 0.6);
+        }
+
+        .ccm:active > i{
+            transform: rotate(0.5turn);
+            color: red;
+        }
+
+        /* 6. Customer Management - active */
+        .cusm:active{
+            border-left: 4px solid rgb(78, 145, 182);
+            background-color: rgba(41, 37, 37, 0.6);
+        }
+
+        .cusm:active > i{
+            transform: rotate(0.5turn);
+            color: red;
+        }
+
+        /* 7. Management payments - active */
+        .mp:active{
+            border-left: 4px solid rgb(78, 145, 182);
+            background-color: rgba(41, 37, 37, 0.6);
+        }
+
+        .mp:active > i{
+            transform: rotate(0.5turn);
+            color: red;
+        }
+
+        /* 8. Overview Reports - active */
+        .or:active{
+            border-left: 4px solid rgb(78, 145, 182);
+            background-color: rgba(41, 37, 37, 0.6);
+        }
+
+        .or:active > i{
+            transform: rotate(0.5turn);
+            color: red;
+        }
+
+        /* 9. Notification management - active */
+        .nm:active{
+            border-left: 4px solid rgb(78, 145, 182);
+            background-color: rgba(41, 37, 37, 0.6);
+        }
+
+        .nm:active > i{
+            transform: rotate(0.5turn);
+            color: red;
+        }
+
+        /* 10. Access management - active */
+        .am:active{
+            border-left: 4px solid rgb(78, 145, 182);
+            background-color: rgba(41, 37, 37, 0.6);
+        }
+
+        .am:active > i{
+            transform: rotate(0.5turn);
+            color: red;
+        }
+        
+    }
+
+
+}
+
+.first-container-homepage:hover {
+    overflow-y: auto;
+}
+
+/* gemeni để ẩn thanh scroll mặc định của sidebar */
+.first-container-homepage::-webkit-scrollbar {
+    display: none;
+}
+
+.second-container-homepage{
+    background-color:rgb(255, 255, 255);
+    grid-column: 900px;
+    padding: 100px;
+     margin: 50px 20px;
+    text-align: center;
+
+    overflow-y: auto;
+
+    position: relative;
+
+    
+
+    .homepage__nav{
+        
+
+        margin: 0 auto;
+
+        line-height: 100px;
+
+        h1{
+            padding: 20px;
+            font-size: 6rem;
+            border: 2px solid black;
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        h2{
+            font-size: 1.5rem;
+            color: rgb(238, 167, 3);
+            text-decoration: underline;
+        }
+
+    }
+
+   
+
+    /* Show all sub-pannel */
+    .page-cpm-container, .page-bns-container, .page-cm-container, 
+    .page-bnc-container, .page-ccm-container, .page-cusm-container, 
+    .page-mp-container, .page-or-container, .page-nm-container, 
+    .page-am-container {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        border-radius: 10px;
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 30px rgba(255, 22, 22, 0.6);
+        background-image: linear-gradient(135deg, rgba(234, 187, 187, 0.407), rgba(245, 163, 82, 0.281));
+    }
+
+    [class*="-container__"] {
+        padding: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+
+        h3{
+            font-size: 1.5rem;
+            color: #121010;
+        }
+
+        button{
+            background: none;
+            padding: 10px;
+
+            border-radius: 50%;
+            border: 3px dotted black;
+
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #252121;
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        button:active{
+            background-image: linear-gradient(90deg,rgba(93, 69, 69, 0.299));
+            box-shadow: 0px 0px 10px rgba(255, 22, 22, 0.6);
+            color: #ffffff71;
+            font-weight: 600;
+
+            transform: scale(0.3s);
+        }
+    }
+    
+} 
+
+
+
+

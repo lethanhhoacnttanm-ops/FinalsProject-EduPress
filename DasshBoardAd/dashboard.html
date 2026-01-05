@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME PAGE ADMIN</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="main-container-homepage">
+        <!-- 1. First div homepage -->
+        <div class="first-container-homepage">
+            <div class="div-sticky">
+                <div class="homepage__logo">
+                    <img src="./img/Isolation_Mode.png" alt="">
+                    <p>EduPress</p>
+                </div>
+    
+                <div class="homepage-active">
+                    <img src="./img/avatar.jpg" alt="">
+                    <div class="homepage-active__state">
+                        <h2>Admin</h2>
+                        <p>🟢 Online</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="homepage__list-vertical">
+                <!-- 1.1 Trang quan ly nah cung cap khoa hoc  -->
+                <div class="list-vertical cpm" onclick="toggleSubMenu(`cpm-id`)" >
+                    <div class="list-vertical__edit">
+                        <i class="fa-solid fa-pen"></i>
+                        <p>Course Provider Management</p>
+
+                    </div>
+                    <i class="fa-solid fa-arrows-rotate"></i> 
+                </div>
+
+                <!-- 1.2 Trang duyệt nhà cung cấp khóa học  -->
+                <div class="list-vertical bns" onclick="toggleSubMenu('bns-id')">
+                    <div class="list-vertical__edit">
+                        <i class="fa-solid fa-person"></i>
+                        <p>Browse new suppliers</p>
+
+                    </div>
+                    <i class="fa-solid fa-arrows-rotate"></i> 
+                </div>
+
+                <!-- 1.3 Trang quản lý các khóa học   -->
+                <div class="list-vertical cm" onclick="toggleSubMenu(`cm-id`)"> 
+                    <div class="list-vertical__edit">
+                        <i class="fa-solid fa-book"></i>
+                        <p>Course Management</p>
+
+                    </div>
+                    <i class="fa-solid fa-arrows-rotate"></i> 
+                </div>
+
+                <!-- 1.4 Trang duyệt khóa học mới   -->
+                <div class="list-vertical bnc" onclick="toggleSubMenu(`bnc-id`)">
+                    <div class="list-vertical__edit">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                        <p>Browse new courses</p>
+
+                    </div>
+                    <i class="fa-solid fa-arrows-rotate"></i> 
+                </div>
+
+                <!-- 1.5 Trang quản lý nội dung khóa học   -->
+                <div class="list-vertical ccm"onclick="toggleSubMenu(`ccm-id`)">
+                    <div class="list-vertical__edit">
+                        <i class="fa-solid fa-folder"></i>
+                        <p>Course content management</p>
+
+                    </div>
+                    <i class="fa-solid fa-arrows-rotate"></i> 
+                </div>
+
+                <!-- 1.6 Trang quản lý khách hàng    -->
+                <div class="list-vertical cusm" onclick="toggleSubMenu(`cusm-id`)">
+                    <div class="list-vertical__edit">
+                        <i class="fa-solid fa-users"></i>
+                        <p>Customer Management</p>
+
+                    </div>
+                    <i class="fa-solid fa-arrows-rotate"></i> 
+                </div>
+
+                <!-- 1.7 Trang quản lý thanh toán từ khách hàng   -->
+                <div class="list-vertical mp" onclick="toggleSubMenu(`mp-id`)">
+                    <div class="list-vertical__edit">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                        <p>Manage payments</p>
+
+                    </div>
+                    <i class="fa-solid fa-arrows-rotate" ></i> 
+                </div>
+
+                <!-- 1.8 Trang báo cáo tổng quan   -->
+                <div class="list-vertical or" onclick="toggleSubMenu(`or-id`)">
+                    <div class="list-vertical__edit">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <p>Overview Report</p>
+
+                    </div>
+                    <i class="fa-solid fa-arrows-rotate"></i> 
+                </div>
+
+                <!-- 1.9 Trang quản lý thông báo  -->
+                <div class="list-vertical nm" onclick="toggleSubMenu(`nm-id`)">
+                    <div class="list-vertical__edit">
+                        <i class="fa-solid fa-bullhorn"></i>
+                        <p>Notification management</p>
+
+                    </div>
+                    <i class="fa-solid fa-arrows-rotate"></i> 
+                </div>
+
+                <!-- 1.10 Trang quản lý quyền truy cập   -->
+                <div class="list-vertical am" onclick="toggleSubMenu(`am-id`)">
+                    <div class="list-vertical__edit">
+                        <i class="fa-solid fa-elevator"></i>
+                        <p>Access management</p>
+
+                    </div>
+                    <i class="fa-solid fa-arrows-rotate"></i> 
+                </div>
+            </div>
+        </div>
+        <!-- 2. Second div homepage -->
+        <div class="second-container-homepage" >
+            <div class="homepage__nav">
+                <h1>Welcome ADMIN ❤️ </h1>
+                <h2>Now!!! Start to working hard</h2>
+            </div>
+
+
+            <!-- 3.CPM -->
+            <div id="cpm-id" style="display: none;" class="page-cpm-container sub-panel">
+                 <div class="page-cpm-container__list-members-provider">
+                    <h3>🎉 Xem danh sách tất cả các nhà cung cấp khóa học hiện có</h3>
+                    <button onclick="goToPage(`CourseProviderManagement/cpm.html`)">Đi đến...</button>
+                 </div>
+
+                 <!-- <div class="page-cpm-container__list-members-provider">
+                    <h3>🎉 Duyệt các nhà cung cấp khóa học</h3>
+                    <button>Đi đến...</button>
+                 </div>
+
+                 <div class="page-cpm-container__list-members-provider">
+                    <h3>🎉 Chỉnh sửa thông tin các nhà cung cấp khóa học</h3>
+                    <button>Đi đến...</button>
+                 </div>
+
+                 <div class="page-cpm-container__list-members-provider">
+                    <h3>🎉 Vô hiệu hóa tài khoản của nhà cung cấp khóa học hiện có</h3>
+                    <button>Đi đến...</button>
+                 </div> -->
+            </div>
+
+            <!-- 4.BNS -->
+             <div id="bns-id" style="display: none;" class="page-bns-container sub-panel">
+                 <div class="page-bns-container__bns">
+                    <h3>🎉 Tạo FORM đăng kí trở thành nhà cung cấp khóa học</h3>
+                    <button onclick="goToPage(`BrowseNewSupplier/bns.html`)">Đi đến...</button>
+                 </div>
+
+                 <div class="page-bns-container__bns">
+                    <h3>🎉 Duyệt các yêu cầu đăng kí</h3>
+                    <button onclick="goToPage(`CourseProviderManagement/cpm.html`)">Đi đến...</button>
+                 </div>
+            </div>
+
+            <!-- 5.CM -->
+             <div id="cm-id" style="display: none;" class="page-cm-container sub-panel">
+                 <div class="page-cm-container__cm">
+                    <h3>🎉 Xem danh sách các khóa học hiện có</h3>
+                    <button onclick="goToPage(`CourseManagement/cm.html`)">Đi đến...</button>
+                 </div>
+            </div>
+
+            <!-- 6.BNC -->
+             <div id="bnc-id" style="display: none;" class="page-bnc-container sub-panel">
+                 <div class="page-bnc-container__bnc">
+                    <h3>🎉 Xem danh sách các khóa học đang cần được duyệt</h3>
+                    <button onclick="goToPage(`CourseManagement/cmpending.html`)">Đi đến...</button>
+                 </div>
+            </div>
+
+            <!-- 7.CCM -->
+             <div id="ccm-id" style="display: none;" class="page-ccm-container sub-panel">
+                 <div class="page-ccm-container__ccm">
+                    <h3>🎉 Xem danh sách các lớp học</h3>
+                    <button>Đi đến...</button>
+                 </div>
+
+                 <div class="page-ccm-container__ccm">
+                    <h3>🎉 Xem các tài liệu liên quan đến lớp học đó</h3>
+                    <button>Đi đến...</button>
+                 </div>
+
+                 <div class="page-ccm-container__ccm">
+                    <h3>🎉 Xem các video bài giảng</h3>
+                    <button>Đi đến...</button>
+                 </div>
+            </div>
+
+            <!-- 8.CusM -->
+             <div id="cusm-id" style="display: none;" class="page-cusm-container sub-panel">
+                 <div class="page-cusm-container__cusm">
+                    <h3>🎉 Xem danh sách các khách hàng đã đăng kí khóa học</h3>
+                    <button>Đi đến...</button>
+                 </div>
+            </div>
+
+            <!-- 9.mp -->
+             <div id="mp-id" style="display: none;" class="page-mp-container sub-panel">
+                 <div class="page-mp-container__mp">
+                    <h3>🎉 Xem danh sách các khoản thanh toán của khách hàng</h3>
+                    <button>Đi đến trang</button>
+                 </div>
+            </div>
+
+            <!-- 10.or -->
+             <div id="or-id" style="display: none;" class="page-or-container sub-panel">
+                 <div class="page-or-container__or">
+                    <h3>🎉 Xem danh sách những người đã tham gia lớp học</h3>
+                    <button>Đi đến...</button>
+                 </div>
+
+                 <div class="page-or-container__or">
+                    <h3>🎉 Xem tất cả các khóa học đã được duyệt</h3>
+                    <button>Đi đến...</button>
+                 </div>
+
+                 <div class="page-or-container__or">
+                    <h3>🎉 Xem doanh thu</h3>
+                    <button>Đi đến...</button>
+                 </div>
+            </div>
+
+            <!-- 11.nm -->
+             <div id="nm-id" style="display: none;" class="page-nm-container sub-panel">
+                 <div class="page-nm-container__nm">
+                    <h3>🎉 Tạo FORM thông báo cho tất cả người dùng</h3>
+                    <button>Đi đến...</button>
+                 </div>
+            </div>
+
+             <!-- 12.am -->
+             <div id="am-id" style="display: none;" class="page-am-container sub-panel">
+                 <div class="page-am-container__am">
+                    <h3>🎉 Xem danh sách các quyền truy cập</h3>
+                    <button>Đi đến...</button>
+                 </div>
+            </div>
+        </div>
+        
+
+        
+    </div>
+    <script src="./dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management Page</title>
+    <link rel="stylesheet" href="cm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="main-container-pending-cm">
+        
+        <div class="pending-backPreviousPage">
+            <button onclick="goBack(`cm.html`)"><i class="fa-solid fa-arrow-left"></i></button>
+        </div>
+
+        <div class="pending-title-cm">
+            <!-- main title course management  -->
+            <h1>Danh sách các khóa học chưa được duyệt</h1>
+        </div>
+
+        <div class="pending-info-details-cm">
+            <!-- 1.  couting asc -->
+            <div class="info-countasc-cm">
+                  <h3>STT</h3>
+            </div>
+            <!-- 2. theme -->
+            <div class="info-theme-cm">
+                 <h3>Chủ đề</h3>
+            </div>
+            <!-- 3. author -->
+            <div class="info-author-cm">
+                 <h3>Người tạo</h3>
+            </div>
+
+
+            <!-- body table -->
+            <div id="table-body-render-coursesPending-cm" style="display: contents;"></div>
+        </div>
+    </div>
+
+
+    <script src="../dashboard.js"></script>
+</body>
+</html>
