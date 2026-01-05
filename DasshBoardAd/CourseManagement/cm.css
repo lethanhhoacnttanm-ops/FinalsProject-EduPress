@@ -1,0 +1,437 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+.header-container-main-cm{
+    display: grid;
+    grid-template-columns: 1fr 4fr 0.5fr;
+
+    text-align: center;
+
+
+    .header-container__logo-cm{
+        padding: 30px;
+        background-image: linear-gradient(90deg,rgb(73, 237, 171), rgb(223, 173, 47));
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 10px;
+
+        cursor: default;
+
+        h3, img{
+            font-size: 1.8rem;
+            font-weight: 700;
+
+            transition: transform 0.5s ease;
+        }
+
+        h3:hover{
+            transform: scale(0.8);
+        }
+
+        img:hover{
+            transform: scale(0.8);
+        }
+
+        
+
+
+    }
+
+    .header-container__title-page-cm{
+        padding: 30px;
+        background-image: linear-gradient(98deg, rgb(223, 173, 47),rgb(73, 237, 171));
+        
+
+        h1{
+            color: rgb(24, 29, 34);
+            transition: transform 0.5s ease;
+
+        }
+
+        h1:hover{
+            transform: scale(1.1);
+            cursor: default;
+        }
+    }
+
+    .header-container__previous-page-cm{
+        padding: 30px;
+        background-image: linear-gradient(90deg,rgb(73, 237, 171), rgb(223, 173, 47));
+
+        
+        cursor: pointer;
+
+        i{
+            font-size: 1.8rem;
+        }
+    }
+        button{
+            background: none;
+            border: none;
+
+            transition: transform 0.5s ease;
+        }
+
+        button:hover{
+            transform: scale(1.1);
+
+            cursor: pointer;
+        }
+
+        button:active{
+            font-size: 1.8rem;
+            color: #ffffff;
+            cursor: pointer;
+
+            transform:rotateZ(360deg);
+        }
+
+
+}
+
+
+/* 2. section-main-cm */
+
+.section-container-main-cm{
+
+
+    border-bottom-left-radius: 6px;
+
+    border-bottom-right-radius: 6px;
+
+    height: auto;
+
+    .section-container__topbar-search-cm{
+            
+        background-color: rgb(200, 197, 183);
+
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        
+
+        text-align: left;
+
+        padding: 20px;
+
+        /* 2.1 */
+        .topbar-search__scroll-nav-cm{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 10px;
+
+            position: relative;
+
+            button, h3{
+                 font-size: 1.2rem;
+            }
+
+            button{
+                background: none;
+                border: none;
+
+                transition: transform 0.5s ease;
+            }
+
+            button:hover{
+                transform: scale(1.1);
+
+                cursor: pointer;
+            }
+
+            button:active{
+                font-size: 1.2rem;
+                color: #ffffff;
+                cursor: pointer;
+
+                transform:rotateZ(180deg);
+            }
+        }
+
+        /* 2.2 - CM  */
+        .topbar-search__searching-cm{
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 30px;
+
+            label, input, button{
+                font-size: 1.2rem;
+            }
+
+            label:hover{
+                color: #ffffff;
+            }
+
+            input{
+                width: 700px;
+
+                padding: 12px 24px;
+
+                border-radius: 40px;
+
+                outline: none;
+
+                border: 3px solid black;
+            }
+
+            button{
+                background: none;
+                border: none;
+
+                transition: transform 0.5s ease;
+            }
+
+            button:hover{
+                transform: scale(1.1);
+
+                cursor: pointer;
+            }
+
+            button:active{
+                font-size: 1.2rem;
+                color: #ffffff;
+                cursor: pointer;
+
+                transform:rotateY(360deg);
+            }
+
+        }
+
+        /* <!-- 2.3 show list member - cm --> */
+
+        .topbar-search__listmember-cm{
+            width: 300px;
+            height: 450px;
+
+            background-color: rgb(251, 251, 251);
+
+            position: absolute;
+
+            top: 180px;
+            left: 88px;
+
+            box-shadow: 0px 10px 30px rgb(24, 29, 34);
+
+            border-radius: 20px;
+        }
+
+        /* 2.3.1 topbar-search__listmember-arrow */
+        .topbar-search__listmember-arrow-cm{
+            width: 50px;
+            height: 300px;
+
+            background-color: rgb(251, 251, 251);
+
+            border-top-left-radius: 70% 100%;
+            border-top-right-radius: 70% 100%;
+            
+
+           
+
+
+            position: absolute;
+
+            top: -20px;
+            left: 129px;
+        }
+    }
+
+    .section-container__table-list-cm{
+
+        /* margin: 20px 25px; */
+
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+
+        .table-list__header-cm{
+
+            /* grid-column: 100px ; */
+            /* margin: 10px; */
+            height: auto;
+
+            padding: 7px 10px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 10px;
+
+            border: 2px solid black;
+
+            background-color: #ece9bb;
+
+            h3{
+                font-size: 1.2rem;
+                color: #0c0c08;
+            }
+
+            i{
+                font-size: 1.2rem;
+                color: #0468ff;
+            }
+        }
+        
+        
+
+        .table-list__body-cm{
+            /* grid-row: 100px; */
+            gap: 10px;
+
+            border: 2px solid black;
+
+            padding: 8px 12px;
+
+            text-align: left;
+
+        }
+        
+    }
+}
+
+
+
+
+
+
+
+/* ❤️ II - Course Management Page ( pending )  */
+
+.main-container-pending-cm{
+    padding: 20px;
+    background-color: rgba(245, 235, 181, 0.484);
+    box-shadow: 0px 0px 10px rgb(223, 173, 47);
+
+    border-radius: 8px;
+
+    width: auto;
+
+    height: auto;
+    
+    margin: 0 30px;
+
+    .pending-backPreviousPage{
+        margin: 15px 0px;
+
+        button{
+            padding: 14px 28px ;
+
+            background-color: #333;
+
+            color: #ffffff;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            
+
+            transition: box-shadow 0.3s ease;
+        }
+
+        button:hover{
+            box-shadow: 0px 0px 5px 10px #ffffffff;
+            
+        }
+
+        button:active{
+            font-size: 0.8rem;
+            background-color: #0468ff;
+
+            border: none;
+        }
+    }
+
+
+    .pending-title-cm{
+        text-align: center;
+        padding: 24px 36px;
+        
+        background-color: aliceblue;
+
+        background-image: url(./img/pic2.png);
+
+        background-repeat:round;
+
+        background-size: cover;
+
+        border-radius: 10px;
+
+        h1{
+            filter: drop-shadow(5px 5px 10px orange);
+            font-size: 2.7rem;
+
+            transition: filter 0.5s ease;
+        }
+
+        h1:hover{
+            filter: drop-shadow(0px 0px 40px rgb(235, 235, 235));
+        }
+
+        
+        
+    }
+
+
+    .pending-info-details-cm{
+        display: grid;
+
+        grid-template-columns: 1fr 3fr 1fr;
+        
+        /* border: 2px solid black; */
+
+        text-align: center;
+
+        margin: 20px auto;
+
+        .info-countasc-cm,
+        .info-theme-cm,
+        .info-author-cm{
+
+            border: 1px solid #333;
+
+            font-size: 1.2rem;
+
+            padding: 30px 0px;
+
+            background-color: #ece9bb;
+            
+             
+        } 
+
+        .table-list__body-coursePending-cm{
+            /* grid-row: 100px; */
+            gap: 10px;
+
+            border: 2px solid black;
+
+            background-color: #ffffff;
+
+            padding: 8px 12px;
+
+            text-align: left;
+
+
+        }
+        
+
+        
+    }
+
+
+}

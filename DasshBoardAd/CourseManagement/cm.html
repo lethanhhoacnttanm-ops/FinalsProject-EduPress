@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management Page</title>
+    <link rel="stylesheet" href="cm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+     <!-- 1.first-main-cm -->
+    <div class="header-container-main-cm">
+        <!-- logo-cm -->
+        <div class="header-container__logo-cm">
+            <img src="../img/Isolation_Mode.png" alt="">
+            <h3>Edupress</h3>
+        </div>
+        <!-- title-cm -->
+        <div class="header-container__title-page-cm">
+            <h1>COURSE MANAGEMENT</h1>
+        </div>
+        <!-- previous page cm -->
+        <div class="header-container__previous-page-cm">
+            <button onclick="goBack(`/FinalsProject-EduPress/DasshBoardAd/dashboard.html`,true)"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+        </div>
+    </div>
+
+
+     <!-- 2.section-main-cm  -->
+    <div class="section-container-main-cm">
+        <div class="section-container__topbar-search-cm">
+            <!-- 2.1 scrolls-cm -->
+            <div class="topbar-search__scroll-nav-cm">
+                 <h3>MENU</h3>
+                 <button onclick="toggleSubMenu(`show-menu-CM`)"><i class="fa-solid fa-bars"></i></button>
+            </div>
+            <!-- 2.2 searching-main-cm -->
+            <div class="topbar-search__searching-cm">
+                 <label for="search">Search</label>
+                 <input type="search" name="search" id="main-searching-cm" placeholder="find...">
+                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
+
+                 
+            </div>
+
+            <!-- 2.3 show list member-cm -->
+            <div id="show-menu-CM" class="topbar-search__listmember-cm sub-panel" style="display: none;">
+                <!-- 2.3.1 arrow continue show list member - cm -->
+                    <div class="topbar-search__listmember-arrow-cm">
+
+                    </div>
+            </div>
+
+            
+        </div>
+
+
+        <div class="section-container__table-list-cm" id="provider-table">
+            <div class="table-list__header-cm">
+                <h3>STT</h3>
+            </div>
+            <div class="table-list__header-cm">
+                <h3>Ảnh bìa</h3>
+            </div>
+            <div class="table-list__header-cm">
+                <h3>Tên khóa học</h3>
+            </div>
+            <div class="table-list__header-cm">
+                <h3>Tác giả (NCC)</h3>
+            </div>
+            <div class="table-list__header-cm">
+                <h3>Giá</h3>
+            </div>
+            <div class="table-list__header-cm">
+                <h3>Lĩnh vực</h3>
+            </div>
+            <div class="table-list__header-cm">
+                <h3>Trạng thái</h3>
+            </div>
+            <div class="table-list__header-cm">
+                <h3>Thao tác</h3>
+            </div>
+
+
+            <!-- body table -->
+            <div id="table-body-render-courses-cm" style="display: contents;"></div>
+        </div>
+    </div>
+
+    <script src="../dashboard.js"></script>
+</body>
+</html>
