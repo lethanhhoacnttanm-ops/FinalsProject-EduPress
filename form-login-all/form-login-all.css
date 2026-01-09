@@ -61,6 +61,7 @@
         margin:  20px 10px;
 
         border: 2px solid rgb(81, 106, 61);
+        
 
         input{
             background-color: transparent;
@@ -68,12 +69,19 @@
             padding: 8px;
             border: none;
             outline: none;
+
         }
 
         i{
             margin: 8px;
         }
 
+
+    }
+
+    .login-email:hover{
+        border-color: #2563eb; 
+        box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
     }
 
     /* <!-- 3. PASSWORD --> */
@@ -88,6 +96,8 @@
         
         border: 2px solid rgb(81,106,61);
 
+        transition: box-shadow 0.3s ease-in;
+
         input{
             background-color: transparent;
             width: 700px;
@@ -95,12 +105,19 @@
             border: none;
             outline: none;
 
-
         }
 
         i{
             margin: 8px
         }
+
+
+    }
+
+    .login-password:hover{
+        border-color: #2563eb; 
+        box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+
     }
 
     /* <!-- 4. Authentication --> */
@@ -140,6 +157,8 @@
         width: auto;
         margin: 20px 10px;
 
+        transition: font-size 0.5s ease-in-out;
+
         .active-btn-login{
             background-color: rgb(81,106,61) ;
             width:150px;
@@ -153,6 +172,8 @@
             font-weight: 400;
 
             cursor: pointer;
+
+            border-radius: 4px;
         }
 
         .active-btn-login:active{
@@ -163,10 +184,12 @@
         }
     }
 
-
+    
    
 
     }
+
+    
     
 
 }

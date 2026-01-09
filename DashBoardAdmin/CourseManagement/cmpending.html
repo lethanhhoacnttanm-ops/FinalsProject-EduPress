@@ -19,27 +19,37 @@
             <h1>Danh sách các khóa học chưa được duyệt</h1>
         </div>
 
-        <div class="pending-info-details-cm">
+        <div class="pending-info-details-cm" id="admin-table-view">
             <!-- 1.  couting asc -->
-            <div class="info-countasc-cm">
+            <div class="info-cm">
                   <h3>STT</h3>
             </div>
-            <!-- 2. theme -->
-            <div class="info-theme-cm">
-                 <h3>Chủ đề</h3>
+            <!-- 2. title course -->
+            <div class="info-cm">
+                 <h3>Tên khóa học</h3>
             </div>
             <!-- 3. author -->
-            <div class="info-author-cm">
-                 <h3>Người tạo</h3>
+            <div class="info-cm">
+                 <h3>Người gửi</h3>
+            </div>
+
+            <!-- 4. prices -->
+            <div class="info-cm">
+                 <h3>Giá</h3>
+            </div>
+
+            <!-- 5. action -->
+            <div class="info-cm">
+                 <h3>Hành động</h3>
             </div>
 
 
             <!-- body table -->
-            <div id="table-body-render-coursesPending-cm" style="display: contents;"></div>
+            <div id="table-body-render-coursesPending-cm-pending" style="display: contents;"></div>
         </div>
     </div>
 
 
-    <script src="../dashboard.js"></script>
+    <script src="./admin-cm-preview.js"></script>
 </body>
 </html>

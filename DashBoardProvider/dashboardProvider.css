@@ -1,0 +1,296 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container-homepage-provider{
+    width: auto;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+    overflow: hidden;
+}
+
+/* <!-- 1. First div homepage --> */
+
+.first-container-homepage-provider{
+    background-color:rgb(34, 45, 50);
+    height: 100vh;
+    grid-column: 200px;
+
+    scrollbar-width: none; /* em sài gemeni đoạn này để hiểu về cách giấu thanh scroll-bar ạ*/
+    overflow-y: hidden; 
+    transition: overflow 0.3s;
+
+   
+
+    
+
+    .div-sticky{
+
+        position: sticky;
+
+        top: 0;
+
+        
+
+        .homepage__logo-provider{
+    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(54, 127, 169) ;
+    
+            gap : 14px;
+            line-height: 50px;
+    
+    
+            p{
+                color: white;
+                font-size: 1.5rem;
+            }
+    
+            img{
+                font-size: 700px;
+            }
+        }
+    
+        .homepage-active-provider{
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center ;
+
+            background-color: rgb(18, 13, 13);
+    
+            gap: 20px;
+            
+
+            .homapage-active__includes-provider{
+
+                display: flex;
+                justify-content: left;
+                align-items: center ;
+
+                gap: 20px;
+
+                img{
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                }
+
+                h2, p{
+                color: white;
+                }
+
+            }
+
+            a{
+                font-size: 1.4rem;
+                background: none;
+
+                outline: none;
+
+                border: none;
+
+                color: #FFFFFF;
+
+                cursor: pointer;
+            }
+
+            a:active{
+                font-size: 1.2rem;
+
+                color: red;
+            }
+    
+            
+        }
+        
+    }
+
+
+
+    .homepage__list-vertical-provider{
+
+        margin: 5px;
+
+        line-height: 50px;
+        .list-vertical{
+            padding: 7px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap : 7px;
+
+            cursor: pointer;
+
+            i{
+                color: white;
+
+                transition: transform 0.2s ease
+            }
+
+
+            .list-vertical__edit{
+
+                display: flex;
+                justify-content: left;
+                align-items: center;
+
+                gap : 10px;
+
+                p{
+                color: white;
+                }
+
+                i{
+                    color: white;
+                }
+            }
+        }
+        
+        .cmp:active, .lmp:active, .dcmp:active {
+            border-left: 4px solid rgb(78, 145, 182);
+            background-color: rgba(41, 37, 37, 0.6);
+        }
+
+        .cmp:active > i, .lmp:active > i, .dcmp:active > i{
+            transform: rotate(0.5turn);
+            color: red;
+        }
+        
+    }
+
+
+}
+
+.first-container-homepage-provide:hover {
+    overflow-y: auto;
+}
+
+/* gemeni để ẩn thanh scroll mặc định của sidebar */
+.first-container-homepage-provide::-webkit-scrollbar {
+    display: none;
+}
+
+.second-container-homepage-provider{
+    background-color:rgb(255, 255, 255);
+    grid-column: 900px;
+    padding: 100px;
+     margin: 50px 20px;
+    text-align: center;
+
+    overflow-y: auto;
+
+    /* position: relative; */
+
+    
+
+        .homepage__nav-provider {
+        text-align: center;
+        padding: 60px 20px;
+        margin: 40px auto;
+        max-width: 800px;
+        background: #ffffff; /* Nền trắng sạch sẽ */
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Bóng đổ rất nhẹ */
+    }
+
+    .homepage__nav-provider h1 {
+        font-size: 4rem; 
+        font-weight: 800;
+        margin-bottom: 10px;
+        
+        color: #1e3c72;
+        background-clip: text;
+        
+        display: inline-block;
+        transition: transform 0.3s ease;
+        cursor: default;
+    }
+
+    .homepage__nav-provider h1:hover {
+        transform: scale(1.05);
+    }
+
+    .homepage__nav-provider h2 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #666; 
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        display: inline-block;
+    }
+
+    .homepage__nav-provider h2::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: #eea703;
+        margin: 10px auto 0;
+        border-radius: 10px;
+    }
+
+   
+
+    /* Show all sub-pannel */
+    .page-cmp-container, .page-lmp-container, .page-dcmp-container{
+        position: absolute;
+        top: 134px;
+        left: 440px;
+        border-radius: 10px;
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 30px rgba(62, 137, 229, 0.6);
+        background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.407), rgba(252, 252, 252, 0.281));
+    }
+
+    [class*="-container__"] {
+        padding: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+
+        h3{
+            font-size: 1.5rem;
+            color: #121010;
+        }
+
+        button{
+            background: none;
+            padding: 10px;
+
+            border-radius: 50%;
+            border: 3px dotted black;
+
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #252121;
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        button:active{
+            background-image: linear-gradient(90deg,rgba(93, 69, 69, 0.299));
+            box-shadow: 0px 0px 10px rgba(80, 122, 239, 0.6);
+            color: #ffffff71;
+            font-weight: 600;
+
+            transform: scale(0.3s);
+        }
+    }
+    
+} 
+
+
+
+

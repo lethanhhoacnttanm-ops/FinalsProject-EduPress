@@ -5,19 +5,16 @@
 }
 
 
-
-
-
-.header-container-main-cm{
+.header-container-main{
     display: grid;
     grid-template-columns: 1fr 4fr 0.5fr;
 
     text-align: center;
 
 
-    .header-container__logo-cm{
+    .header-container__logo{
         padding: 30px;
-        background-image: linear-gradient(90deg,rgb(73, 237, 171), rgb(223, 173, 47));
+        background-color: rgb(54, 127, 169);
 
         display: flex;
         justify-content: center;
@@ -30,6 +27,7 @@
         h3, img{
             font-size: 1.8rem;
             font-weight: 700;
+            color: #ffffff;
 
             transition: transform 0.5s ease;
         }
@@ -47,13 +45,13 @@
 
     }
 
-    .header-container__title-page-cm{
+    .header-container__title-page{
         padding: 30px;
-        background-image: linear-gradient(98deg, rgb(223, 173, 47),rgb(73, 237, 171));
+        background-color: rgb(54, 127, 169);
         
 
         h1{
-            color: rgb(24, 29, 34);
+            color: rgb(255, 255, 255);
             transition: transform 0.5s ease;
 
         }
@@ -64,9 +62,9 @@
         }
     }
 
-    .header-container__previous-page-cm{
+    .header-container__previous-page{
         padding: 30px;
-        background-image: linear-gradient(90deg,rgb(73, 237, 171), rgb(223, 173, 47));
+        background-color: rgb(54, 127, 169);
 
         
         cursor: pointer;
@@ -74,35 +72,38 @@
         i{
             font-size: 1.8rem;
         }
-    }
-        button{
+
+        a{
             background: none;
             border: none;
+
+             color: #ffffff;
 
             transition: transform 0.5s ease;
         }
 
-        button:hover{
+        a:hover{
             transform: scale(1.1);
 
             cursor: pointer;
         }
 
-        button:active{
+        a:active{
             font-size: 1.8rem;
             color: #ffffff;
             cursor: pointer;
 
             transform:rotateZ(360deg);
         }
+    }
 
 
 }
 
 
-/* 2. section-main-cm */
+/* 2. section-main */
 
-.section-container-main-cm{
+.section-container-main{
 
 
     border-bottom-left-radius: 6px;
@@ -111,7 +112,7 @@
 
     height: auto;
 
-    .section-container__topbar-search-cm{
+    .section-container__topbar-search{
             
         background-color: rgb(200, 197, 183);
 
@@ -124,7 +125,7 @@
         padding: 20px;
 
         /* 2.1 */
-        .topbar-search__scroll-nav-cm{
+        .topbar-search__scroll-nav{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -159,8 +160,8 @@
             }
         }
 
-        /* 2.2 - CM  */
-        .topbar-search__searching-cm{
+        /* 2.2 */
+        .topbar-search__searching{
 
             display: flex;
             justify-content: center;
@@ -211,9 +212,9 @@
 
         }
 
-        /* <!-- 2.3 show list member - cm --> */
+        /* <!-- 2.3 show list member --> */
 
-        .topbar-search__listmember-cm{
+        .topbar-search__listmember{
             width: 300px;
             height: 450px;
 
@@ -230,7 +231,7 @@
         }
 
         /* 2.3.1 topbar-search__listmember-arrow */
-        .topbar-search__listmember-arrow-cm{
+        .topbar-search__listmember-arrow{
             width: 50px;
             height: 300px;
 
@@ -250,15 +251,15 @@
         }
     }
 
-    .section-container__table-list-cm{
+    .section-container__table-list{
 
         /* margin: 20px 25px; */
 
         display: grid;
-        grid-template-columns: repeat(8, 1fr);
+        grid-template-columns: repeat(7, 1fr);
         grid-template-rows: repeat(10, 1fr);
 
-        .table-list__header-cm{
+        .table-list__header{
 
             /* grid-column: 100px ; */
             /* margin: 10px; */
@@ -289,149 +290,13 @@
         
         
 
-        .table-list__body-cm{
+        .table-list__body{
             /* grid-row: 100px; */
             gap: 10px;
 
             border: 2px solid black;
 
-            padding: 8px 12px;
-
-            text-align: left;
-
         }
         
     }
-}
-
-
-
-
-
-
-
-/* ❤️ II - Course Management Page ( pending )  */
-
-.main-container-pending-cm{
-    padding: 20px;
-    background-color: rgba(245, 235, 181, 0.484);
-    box-shadow: 0px 0px 10px rgb(223, 173, 47);
-
-    border-radius: 8px;
-
-    width: auto;
-
-    height: auto;
-    
-    margin: 0 30px;
-
-    .pending-backPreviousPage{
-        margin: 15px 0px;
-
-        button{
-            padding: 14px 28px ;
-
-            background-color: #333;
-
-            color: #ffffff;
-
-            border-radius: 10px;
-
-            cursor: pointer;
-
-            
-
-            transition: box-shadow 0.3s ease;
-        }
-
-        button:hover{
-            box-shadow: 0px 0px 5px 10px #ffffffff;
-            
-        }
-
-        button:active{
-            font-size: 0.8rem;
-            background-color: #0468ff;
-
-            border: none;
-        }
-    }
-
-
-    .pending-title-cm{
-        text-align: center;
-        padding: 24px 36px;
-        
-        background-color: aliceblue;
-
-        background-image: url(./img/pic2.png);
-
-        background-repeat:round;
-
-        background-size: cover;
-
-        border-radius: 10px;
-
-        h1{
-            filter: drop-shadow(5px 5px 10px orange);
-            font-size: 2.7rem;
-
-            transition: filter 0.5s ease;
-        }
-
-        h1:hover{
-            filter: drop-shadow(0px 0px 40px rgb(235, 235, 235));
-        }
-
-        
-        
-    }
-
-
-    .pending-info-details-cm{
-        display: grid;
-
-        grid-template-columns: 1fr 3fr 1fr;
-        
-        /* border: 2px solid black; */
-
-        text-align: center;
-
-        margin: 20px auto;
-
-        .info-countasc-cm,
-        .info-theme-cm,
-        .info-author-cm{
-
-            border: 1px solid #333;
-
-            font-size: 1.2rem;
-
-            padding: 30px 0px;
-
-            background-color: #ece9bb;
-            
-             
-        } 
-
-        .table-list__body-coursePending-cm{
-            /* grid-row: 100px; */
-            gap: 10px;
-
-            border: 2px solid black;
-
-            background-color: #ffffff;
-
-            padding: 8px 12px;
-
-            text-align: left;
-
-
-        }
-        
-
-        
-    }
-
-
 }
