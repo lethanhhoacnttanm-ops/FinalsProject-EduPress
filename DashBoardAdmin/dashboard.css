@@ -58,24 +58,56 @@
         .homepage-active{
             padding: 10px;
             display: flex;
-            justify-content: left;
+            justify-content: space-between;
             align-items: center ;
 
             background-color: rgb(18, 13, 13);
     
             gap: 20px;
-            img{
+            
+
+            .homapage-active__includes{
+
+                display: flex;
+                justify-content: left;
+                align-items: center ;
+
+                gap: 20px;
+
+                img{
                 width: 60px;
                 height: 60px;
                 border-radius: 50%;
-            }
-    
-            h2, p{
+                }
+
+                h2, p{
                 color: white;
+                }
+
+            }
+
+            a{
+                font-size: 1.4rem;
+                background: none;
+
+                outline: none;
+
+                border: none;
+
+                color: #FFFFFF;
+
+                cursor: pointer;
+            }
+
+            button:active{
+                font-size: 1.2rem;
+
+                color: red;
             }
     
             
         }
+        
     }
 
 
@@ -134,112 +166,22 @@
         /* bản copy cho từng mục này  */
 
 
-        /* 1. Course Provider Management - active */
-        .cpm:active{
+        /* 1. Course Provider Management - active  2. Browse new supplier - active  3. Course Management - active */
+        
+
+        /* 4. Browse new course - active  5. Course content management - active  6. Customer Management - active */
+        
+
+        /* 7. Management payments - active  8. Overview Reports - active  9. Notification management - active  10. Access management - active */
+        
+        .cpm:active, .bns:active, .cm:active, .bnc:active, .ccm:active, 
+        .cusm:active, .mp:active, .or:active, .nm:active, .am:active {
             border-left: 4px solid rgb(78, 145, 182);
             background-color: rgba(41, 37, 37, 0.6);
         }
 
-        .cpm:active > i{
-            transform: rotate(0.5turn);
-            color: red;
-        }
-
-        /* 2. Browse new supplier - active */
-        .bns:active{
-            border-left: 4px solid rgb(78, 145, 182);
-            background-color: rgba(41, 37, 37, 0.6);
-        }
-
-        .bns:active > i{
-            transform: rotate(0.5turn);
-            color: red;
-        }
-
-        /* 3. Course Management - active */
-        .cm:active{
-            border-left: 4px solid rgb(78, 145, 182);
-            background-color: rgba(41, 37, 37, 0.6);
-        }
-
-        .cm:active > i{
-            transform: rotate(0.5turn);
-            color: red;
-        }
-
-        /* 4. Browse new course - active */
-        .bnc:active{
-            border-left: 4px solid rgb(78, 145, 182);
-            background-color: rgba(41, 37, 37, 0.6);
-        }
-
-        .bnc:active > i{
-            transform: rotate(0.5turn);
-            color: red;
-        }
-
-        /* 5. Course content management - active */
-        .ccm:active{
-            border-left: 4px solid rgb(78, 145, 182);
-            background-color: rgba(41, 37, 37, 0.6);
-        }
-
-        .ccm:active > i{
-            transform: rotate(0.5turn);
-            color: red;
-        }
-
-        /* 6. Customer Management - active */
-        .cusm:active{
-            border-left: 4px solid rgb(78, 145, 182);
-            background-color: rgba(41, 37, 37, 0.6);
-        }
-
-        .cusm:active > i{
-            transform: rotate(0.5turn);
-            color: red;
-        }
-
-        /* 7. Management payments - active */
-        .mp:active{
-            border-left: 4px solid rgb(78, 145, 182);
-            background-color: rgba(41, 37, 37, 0.6);
-        }
-
-        .mp:active > i{
-            transform: rotate(0.5turn);
-            color: red;
-        }
-
-        /* 8. Overview Reports - active */
-        .or:active{
-            border-left: 4px solid rgb(78, 145, 182);
-            background-color: rgba(41, 37, 37, 0.6);
-        }
-
-        .or:active > i{
-            transform: rotate(0.5turn);
-            color: red;
-        }
-
-        /* 9. Notification management - active */
-        .nm:active{
-            border-left: 4px solid rgb(78, 145, 182);
-            background-color: rgba(41, 37, 37, 0.6);
-        }
-
-        .nm:active > i{
-            transform: rotate(0.5turn);
-            color: red;
-        }
-
-        /* 10. Access management - active */
-        .am:active{
-            border-left: 4px solid rgb(78, 145, 182);
-            background-color: rgba(41, 37, 37, 0.6);
-        }
-
-        .am:active > i{
+        .cpm:active > i, .bns:active > i, .cm:active > i, .bnc:active > i, .ccm:active > i, 
+        .cusm:active > i, .mp:active > i, .or:active > i, .nm:active > i, .am:active > i {
             transform: rotate(0.5turn);
             color: red;
         }
@@ -271,27 +213,51 @@
 
     
 
-    .homepage__nav{
+        .homepage__nav {
+        text-align: center;
+        padding: 60px 20px;
+        margin: 40px auto;
+        max-width: 800px;
+        background: #ffffff; /* Nền trắng sạch sẽ */
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Bóng đổ rất nhẹ */
+    }
+
+    .homepage__nav h1 {
+        font-size: 4rem; 
+        font-weight: 800;
+        margin-bottom: 10px;
         
+        color: #1e3c72;
+        background-clip: text;
+        
+        display: inline-block;
+        transition: transform 0.3s ease;
+        cursor: default;
+    }
 
-        margin: 0 auto;
+    .homepage__nav h1:hover {
+        transform: scale(1.05);
+    }
 
-        line-height: 100px;
+    .homepage__nav h2 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #666; 
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        display: inline-block;
+    }
 
-        h1{
-            padding: 20px;
-            font-size: 6rem;
-            border: 2px solid black;
-            border-radius: 10px;
-            transition: transform 0.5s ease;
-        }
-
-        h2{
-            font-size: 1.5rem;
-            color: rgb(238, 167, 3);
-            text-decoration: underline;
-        }
-
+    .homepage__nav h2::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: #eea703;
+        margin: 10px auto 0;
+        border-radius: 10px;
     }
 
    
@@ -306,8 +272,8 @@
         left: 30px;
         border-radius: 10px;
         background-color: #FFFFFF;
-        box-shadow: 0px 0px 30px rgba(255, 22, 22, 0.6);
-        background-image: linear-gradient(135deg, rgba(234, 187, 187, 0.407), rgba(245, 163, 82, 0.281));
+        box-shadow: 0px 0px 30px rgba(62, 137, 229, 0.6);
+        background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.407), rgba(252, 252, 252, 0.281));
     }
 
     [class*="-container__"] {

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management Page</title>
+    <link rel="stylesheet" href="cmp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    
+    <!-- 1.Main container CMP -->
+    <div class="header-container-CMP">
+        <!-- logo -->
+        <div class="header-container-CMP__logo">
+            <img src="../img/Isolation_Mode.png" alt="">
+            <h3>Edupress</h3>
+        </div>
+        <!-- title -->
+        <div class="header-container-CMP__title-page">
+            <h1>Course Management</h1>
+        </div>
+        <!-- previous page -->
+        <div class="header-container-CMP__previous-page">
+            <a href="../dashboardProvider.html"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        </div>
+    </div>
+
+    <!-- 2.section-CONTAINER CMP  -->
+    <div class="section-container-CMP">
+        <div class="section-container-CMP__topbar-search">
+            <!-- 2.1 scrolls -->
+            <div class="topbar-search__scroll-nav">
+                 <h3>MENU</h3>
+                 <button onclick="toggleSubMenu(`show-menu`)"><i class="fa-solid fa-bars"></i></button>
+            </div>
+            <!-- 2.2 searching-main -->
+            <div class="topbar-search__searching">
+                 <label for="search">Search</label>
+                 <input type="search" name="search" id="main-searching" placeholder="find...">
+                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
+
+                 
+            </div>
+
+            <!-- 2.3 show list member -->
+            <div id="show-menu" class="topbar-search__listmember sub-panel" style="display: none;">
+                <!-- 2.3.1 arrow continue show list member -->
+                    <div class="topbar-search__listmember-arrow">
+
+                    </div>
+            </div>
+
+            
+        </div>
+
+
+        <div class="section-container-CMP__table-list" id="provider-table-CMP">
+            <div class="table-list__header">
+                <h3>STT</h3>
+            </div>
+            <div class="table-list__header">
+                <h3>Hình ảnh & Tên khóa học</h3>
+            </div>
+            <div class="table-list__header">
+                <h3>Giá tiền</h3>
+            </div>
+            <div class="table-list__header">
+                <h3>Số lượng học viên</h3>
+            </div>
+            <div class="table-list__header">
+                <h3>Trạng thái</h3>
+            </div>
+            <div class="table-list__header">
+                <h3>Ngày tạo</h3>
+            </div>
+            <div class="table-list__header">
+                <h3>Thao tác</h3>
+            </div>
+
+
+            <!-- body table -->
+            <div id="table-body-render-CMP" style="display: contents;"></div>
+        </div>
+    </div>
+
+    <script src="./cmp.js"></script>
+
+</body>
+</html>
