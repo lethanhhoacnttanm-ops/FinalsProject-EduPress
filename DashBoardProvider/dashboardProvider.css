@@ -179,26 +179,31 @@
 }
 
 .second-container-homepage-provider{
-    background-color:rgb(255, 255, 255);
+    background-color:rgba(231, 223, 223, 0.47);
     grid-column: 900px;
+
+    background-image: url(../DashBoardAdmin/img/banner-with-office.jpg);
+
+    background-size: cover;
+
     padding: 100px;
-     margin: 50px 20px;
     text-align: center;
 
     overflow-y: auto;
 
-    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    
 
         .homepage__nav-provider {
         text-align: center;
         padding: 60px 20px;
         margin: 40px auto;
         max-width: 800px;
-        background: #ffffff; /* Nền trắng sạch sẽ */
+        background: #ffffff79; 
         border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Bóng đổ rất nhẹ */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
     }
 
     .homepage__nav-provider h1 {
@@ -206,7 +211,7 @@
         font-weight: 800;
         margin-bottom: 10px;
         
-        color: #1e3c72;
+        color:  rgb(209, 176, 145);
         background-clip: text;
         
         display: inline-block;

@@ -57,6 +57,9 @@ function renderListCourse() {
         <div class="table-list__body">${item.CreateDate || item.date}</div>
 
         <div class="table-list__body">
+                <button class="btn-action add" onclick="addCourse(${item.id})" title="Thêm">
+                    <i class="fa-solid fa-circle-plus"></i>
+                </button>
                 <button class="btn-action edit" onclick="editCourse(${item.id})" title="Sửa">
                     <i class="fa-solid fa-pen"></i>
                 </button>

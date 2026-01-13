@@ -151,19 +151,7 @@
                 }
             }
         }
-        /* Bản gốc active chung cho list-vertical */
-        /* .list-vertical:active{
-            border-left: 4px solid rgb(78, 145, 182);
-            background-color: rgba(41, 37, 37, 0.6);
-            
-        }
-        
-        .list-vertical:active > i{
-            
-            transform: rotate(0.5turn);
-        } */
-
-        /* bản copy cho từng mục này  */
+       
 
 
         /* 1. Course Provider Management - active  2. Browse new supplier - active  3. Course Management - active */
@@ -202,25 +190,31 @@
 
 .second-container-homepage{
     background-color:rgb(255, 255, 255);
+
+    background-image: url(../DashBoardAdmin/img/banner-with-office.jpg);
+
+    background-size: cover;
+
     grid-column: 900px;
     padding: 100px;
-     margin: 50px 20px;
     text-align: center;
 
     overflow-y: auto;
 
     position: relative;
 
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
         .homepage__nav {
         text-align: center;
         padding: 60px 20px;
         margin: 40px auto;
         max-width: 800px;
-        background: #ffffff; /* Nền trắng sạch sẽ */
+        background: #ffffff79; 
         border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Bóng đổ rất nhẹ */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
     }
 
     .homepage__nav h1 {
@@ -228,7 +222,7 @@
         font-weight: 800;
         margin-bottom: 10px;
         
-        color: #1e3c72;
+        color: rgb(209, 176, 145);
         background-clip: text;
         
         display: inline-block;

@@ -5,6 +5,11 @@
     padding: 0;
 }
 
+body, html{
+    background-image: url(../CourseManagement/img/background-trang-cuc-dep.jpg);
+
+    background-size: cover;
+}
 
 .FORM-main{
     display: flex;

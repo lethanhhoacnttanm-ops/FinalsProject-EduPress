@@ -9,7 +9,6 @@
 
 </head>
 <body>
-
     <!-- 1. Header lesson management page -->
     <header class="header-lmp-container">
         <div class="header-lmp-logo">
@@ -18,145 +17,56 @@
         </div>
 
         <div class="header-lmp-title">
-            <h1>Lesson Management</h1>
+            <h1>Lesson Management Page</h1>
         </div>
 
         <div class="header-lmp-interact">
-            <div class="lmp-interact__save">
-                <button id="btn-submit-course">Gửi duyệt</button>
-            </div>
-
-            <div class="lmp-interact__sendRequest">
-                <button>Lưu nháp</button>
-            </div>
-
             <div class="lmp-interact__previous-page">
                 <a href="../dashboardProvider.html"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
             </div>
         </div>
     </header>
 
-    <!-- 2. section lesson management page -->
-
+    <!-- 2. Section lesson management page -->
     <section class="section-lmp-container">
+        <!-- 🥲 Navigation (30%) ->> translate ->>sidepage (70%) -->
+        <div class="section-lmp-container__navbar-main">
 
-        <!-- 2.1 nav (30%) -->
-        <div class="section-lmp-container__navbar">
-            <!-- active show  -->
-            <div class="list-navbar">
-                <p>Khóa học</p>
-                <i class="fa-regular fa-circle"></i>
+            <!-- Button of Basic Info -->
+            <div class="navbar-main__transToListBasicInfor">
+                <button onclick="transToPage('hidden-basicinfo')" >Info Courses</button>
             </div>
 
-            <div class="list-navbar">
-                <p>Doanh thu</p>
-                <i class="fa-regular fa-circle"></i>
+            <!-- Button of LCEP page -->
+            <div class="navbar-main__transToLECP">
+                <button onclick="goToPage('./lcep.html')" >Add New Lesson</button>
             </div>
 
-            <div class="list-navbar">
-                <p>Khuyến mãi</p>
-                <i class="fa-regular fa-circle"></i>
+           <!-- Button of Lesson All -->
+            <div class="navbar-main__transToListLessonAll">
+                <button onclick="transToPage('hidden-lessonAll')">List Lesson</button>
             </div>
+
+            
         </div>
 
+        <!-- 🥲 Translation 70% -->
+        <div class="section-lmp-container__translatePage">
 
-        <!-- 2.2 content (70%) -->
-        <div class="section-lmp-container__main-content">
-             <!-- 2.2 100% -->
-             <!-- 70% -->
-            <div class="main-content__main">
-                <!-- Khối này dành cho thông tin chung -->
-                <div class="main__block-content-speacial">
+            
 
-                    <div class="block-content-speacial__block-fillout-name design-fillout-form">
-                        <label for="namecourse" class="block-content-speacial__label">Hãy điền tên khóa học của bạn</label>
-                        <input type="text" name="namecourse" placeholder="Tên khóa học..." id="course-title">
-                    </div>
-                    
-                    <div class="block-content-speacial__block-fillout-scripts design-fillout-form">
-                        <label for="description" class="block-content-speacial__label">Hãy mô tả chi tiết khóa học của bạn</label>
-                        <input type="text" name="description" placeholder="Mô tả chi tiết...">
-                    </div>
-                </div>
-
-                <!-- Khối này dành cho cấu trúc bài giảng-->
-                <div class="main__block-structured-lesson">
-
-                    <div class="lesson-item">
-                        <label>Tiêu đề bài học:</label>
-                        <input type="text" placeholder="Nhập tên bài học...">
-
-                        <label>Nội dung chi tiết (Textarea):</label>
-                        <textarea rows="5" placeholder="Viết nội dung bài học hoặc hướng dẫn tại đây..." id="textarea"></textarea>
-                    </div>
-
-                    <div class="attachment-item">
-                        <div class="attachment-item__file-display-box" id="file-preview-box">
-                            <i class="fa-solid fa-file-arrow-up" id="file-icon"></i>
-                            <p id="attachment-item__file-name-display" style="display: none; font-weight: bold; color: #ff0000;"></p>
-                        </div>
-
-                        <div class="attachment-item__file-interact-buttons">
-                            <input type="file" id="lesson-document" hidden accept=".pdf,.doc,.docx,.zip">
-                            
-                            <button type="button" class="btn-choose-file" onclick="document.getElementById('lesson-document').click()">
-                                Chọn tài liệu
-                            </button>
-                            
-                            <button type="button" id="btn-delete-file" class="btn-delete" disabled>
-                                Xóa file
-                            </button>
-                        </div>
-                    </div>
-                      
-                </div>
+            <!-- This is the infomation page -->
+            <div class="translatePage__ListBasicInfor showpage" id="hidden-basicinfo" style="display:  none;">
+              
             </div>
 
-
-            <!--  30% -->
-            <div class="main-content__attributes">
-                <!-- Khối hình ảnh đại diện -->
-                <div class="attributes__block-Profile-picture" id="preview-container">
-                     <div class="block-Profile-picture__picture" >
-                          <i class="fa-solid fa-camera" id="camera-icon"></i>
-                          <img src="" id="image-preview" style="display: none; width: 100%; height: 100%; object-fit: cover;">
-                     </div>
-
-                     <div class="block-Profile-picture__interact">
-                          <input type="file" id="course-image" hidden accept="image/*">
-                          <button type="button" class="interact-choose" onclick="document.getElementById('course-image').click()">Chọn ảnh</button>
-                          <button type="button" class="interact-delete" id="btn-delete" disabled>Xóa ảnh</button>
-                     </div>
-                </div>
-
-                
-                <!-- Khối giá cả -->
-                <div class="attributes__block-prices">
-                    <label class="block-prices__info-label"><i class="fa-solid fa-tags"></i> Giá khóa học (VNĐ)</label>
-                    <div class="block-prices__price-inputs">
-                        <input type="number" id="base-price" placeholder="Giá gốc (vd: 500000)">
-                        <input type="number" id="sale-price" placeholder="Giá giảm (nếu có)">
-                    </div>
-                    <small class="block-prices__info-note">* Để trống giá giảm nếu không có khuyến mãi</small>
-                </div>
-   
-                <!-- Khối phân loại -->
-                <div class="attributes__block-Classify">
-                    <label class="block-Classify__info-label"><i class="fa-solid fa-layer-group"></i> Danh mục</label>
-                    <select id="course-category" class="block-Classify__category-select">
-                        <option value="">-- Chọn danh mục --</option>
-                        <option value="it">Công nghệ thông tin</option>
-                        <option value="business">Kinh doanh / Marketing</option>
-                        <option value="language">Ngoại ngữ</option>
-                        <option value="design">Thiết kế đồ họa</option>
-                    </select>
-                </div> 
-
+            <!-- This is the lesson page -->
+            <div class="translatePage__ListLessonAll showpage" id="hidden-lessonAll" style="display:  none;">
 
             </div>
+
         </div>
     </section>
-
 
     <script src="./lmp.js"></script>
 </body>
