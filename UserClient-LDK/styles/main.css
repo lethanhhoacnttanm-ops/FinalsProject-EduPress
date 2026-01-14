@@ -382,6 +382,8 @@ body {
 
 .searchbar {
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .search-icon {
@@ -654,9 +656,11 @@ body {
     align-items: center;
     height: 16px;
     color: #555;
+    cursor: pointer;
 }
 
 .filer-group label input{
     width: 16px;
     height: 16px;
+    accent-color: #ff6b35;
 }

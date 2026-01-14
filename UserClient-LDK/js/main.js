@@ -277,23 +277,6 @@ function displayCourses(filteredCourses) {
 
 displayCourses(coursesData);
 
-//function to handle real time search
-const searchInput = document.getElementById("searchInput");
-if (searchInput) {
-    searchInput.addEventListener("input", function () {
-        const searchTerm = this.value.toLowerCase().trim();
-
-        const filtered = coursesData.filter(
-            (course) =>
-                course.title.toLowerCase().includes(searchTerm) ||
-                course.category.toLowerCase().includes(searchTerm) ||
-                course.instructor.toLowerCase().includes(searchTerm)
-        );
-
-        displayCourses(filtered);
-    });
-}
-
 //function to handle layout toggle
 const gridBtn = document.getElementById("gridViewBtn");
 const listBtn = document.getElementById("listViewBtn");
@@ -311,4 +294,107 @@ if (gridBtn && listBtn && coursesGrid) {
         gridBtn.classList.remove("active");
         coursesGrid.classList.add("list-view");
     });
+}
+
+// ===== Filter courses =====
+
+const allFilterCheckboxes = document.querySelectorAll(".filter-checkbox");
+allFilterCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", applyFilters);
+});
+
+function applyFilters() {
+    // Debug
+    // console.log("Checkbox thay đổi");
+
+    let selectedCategories = [];
+    let selectedInstructors = [];
+    let selectedPrices = [];
+    let selectedLevels = [];
+
+    allFilterCheckboxes.forEach((cb) => {
+        if (cb.checked) {
+            const value = cb.value;
+            if (
+                value === "Business" ||
+                value === "Design" ||
+                value === "Programming" ||
+                value === "Marketing"
+            ) {
+                selectedCategories.push(value);
+            } else if (
+                value === "Jane Smith" ||
+                value === "John Doe" ||
+                value === "Mike Wilson" ||
+                value === "Sarah Lee"
+            ) {
+                selectedInstructors.push(value);
+            } else if (value === "Free" || value === "Paid") {
+                selectedPrices.push(value);
+            } else if (
+                value === "Beginner" ||
+                value === "Intermediate" ||
+                value === "Advanced" ||
+                value === "All"
+            ) {
+                selectedLevels.push(value);
+            }
+        }
+    });
+
+    let filtered = coursesData;
+
+    if (selectedCategories.length > 0) {
+        filtered = filtered.filter((course) =>
+            selectedCategories.includes(course.category)
+        );
+    }
+
+    if (selectedInstructors.length > 0) {
+        filtered = filtered.filter((course) =>
+            selectedInstructors.includes(course.instructor)
+        );
+    }
+
+    if (selectedPrices.length > 0) {
+        filtered = filtered.filter((course) => {
+            if (selectedPrices.includes("Free") && course.price === "Free")
+                return true;
+            if (selectedPrices.includes("Paid") && course.price !== "Free")
+                return true;
+            return false;
+        });
+    }
+
+    if (selectedLevels.length > 0) {
+        filtered = filtered.filter((course) =>
+            selectedLevels.includes(course.level)
+        );
+    }
+
+    const searchTerm =
+        document.getElementById("searchInput")?.value.toLowerCase().trim() ||
+        "";
+
+    if (searchTerm) {
+        filtered = filtered.filter((course) =>
+            course.title.toLowerCase().includes(searchTerm)
+        );
+    }
+
+    displayCourses(filtered);
+
+    // Debug
+    // console.log(
+    //     selectedCategories,
+    //     selectedPrices,
+    //     selectedLevels
+    // );
+    // console.log("Kết quả lọc:", filtered.length, "khóa học");
+}
+
+if (document.getElementById("searchInput")) {
+    document
+        .getElementById("searchInput")
+        .addEventListener("input", applyFilters);
 }
