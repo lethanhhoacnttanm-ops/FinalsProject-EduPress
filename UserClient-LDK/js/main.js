@@ -147,7 +147,7 @@ const coursesData = [
         duration: "2 Weeks",
         students: 156,
         lessons: 20,
-        level: "All levels",
+        level: "Beginner",
         price: "Free",
         image: "https://t4.ftcdn.net/jpg/05/86/69/47/360_F_586694705_4WWYJnGlQUb7YwXm8kXCUxMkGzuOsi38.jpg",
     },
@@ -250,7 +250,7 @@ function createCourseCard(course) {
             <p class="meta level">Level: <strong>${course.level}</strong></p>
             <div class="price-view-row">
                 <p class="price">${course.price}</p>
-                <a href="course-detail.html?id=${course.id}" class="btn-view">View More</a>
+                <a href="course-detail.html?id=${course.id}" target="_blank" class="btn-view">View More</a>
             </div>
         </div>
     </div>
@@ -397,4 +397,51 @@ if (document.getElementById("searchInput")) {
     document
         .getElementById("searchInput")
         .addEventListener("input", applyFilters);
+}
+
+// Course detail page
+// ===== TRANG CHI TIẾT KHÓA HỌC =====
+const urlParams = new URLSearchParams(window.location.search);
+const courseId = parseInt(urlParams.get("id"));
+
+if (courseId && document.getElementById("courseTitle")) {
+    const course = coursesData.find((c) => c.id === courseId);
+
+    if (course) {
+        document.getElementById("courseTitle").textContent = course.title;
+
+        // Các chi tiết khác: thêm <strong> cho nhãn
+        document.getElementById("courseCategory").innerHTML =
+            "<strong>Danh mục:</strong> " + course.category;
+        document.getElementById("courseInstructor").innerHTML =
+            "<strong>Giảng viên:</strong> " + course.instructor;
+        document.getElementById("courseLevel").innerHTML =
+            "<strong>Level:</strong> " + course.level;
+        document.getElementById("coursePrice").innerHTML =
+            "<strong>Giá:</strong> " + course.price;
+        document.getElementById("courseDuration").innerHTML =
+            "<strong>Thời lượng:</strong> " + course.duration;
+        document.getElementById("courseStudents").innerHTML =
+            "<strong>Học viên:</strong> " + course.students;
+        document.getElementById("courseLessons").innerHTML =
+            "<strong>Bài học:</strong> " + course.lessons;
+
+        // Ảnh
+        document.getElementById("courseImage").src = course.image;
+
+        // Mô tả (không cần đậm)
+        document.getElementById("courseDescription").textContent =
+            course.description ||
+            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident sunt quae nobis iusto consequatur libero, laboriosam facilis, sit aut quo dicta iste sed, doloremque assumenda error exercitationem eaque debitis magni consectetur voluptatum! Odit voluptatem cupiditate repellat quis aspernatur libero minus, ipsam deleniti quidem quasi odio, maxime ratione magni incidunt saepe voluptatum natus culpa vero recusandae earum ab temporibus quo ut omnis? Veritatis, dolores! Quidem, beatae placeat accusantium adipisci fugiat, alias at totam tempora ipsa optio in. Ipsam dolore, obcaecati in excepturi doloribus sint sequi fugiat a dolores dolorem sit architecto minus illo reprehenderit at repellendus rerum eveniet amet? Pariatur, impedit.";
+
+        // Danh sách bài học (giữ nguyên)
+        const lessonsList = document.getElementById("lessonsList");
+        lessonsList.innerHTML = "";
+        for (let i = 1; i <= course.lessons; i++) {
+            lessonsList.innerHTML += `<li>Lesson ${i}: Bài học mẫu ${i}</li>`;
+        }
+    } else {
+        document.getElementById("courseTitle").textContent =
+            "Không tìm thấy khóa học";
+    }
 }

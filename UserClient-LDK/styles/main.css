@@ -596,16 +596,15 @@ body {
     font-size: 16px;
 }
 
-.courses-grid.list-view .course-card .price-view-row{
+.courses-grid.list-view .course-card .price-view-row {
     margin-top: 70px;
 }
 
-.courses-grid.list-view .course-card .price-view-row .price{
+.courses-grid.list-view .course-card .price-view-row .price {
     margin: 0;
 }
 
-.courses-grid.list-view .course-card .price-view-row .btn-view{
-}
+.courses-grid.list-view .course-card .price-view-row .btn-view {}
 
 /* Nút toggle layout */
 .layout-buttons {
@@ -634,23 +633,23 @@ body {
 }
 
 /* Sidebar right */
-.filter-box{
+.filter-box {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.filer-group h4{
+.filer-group h4 {
     margin-bottom: 10px;
 }
 
-.filer-group{
+.filer-group {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.filer-group label{
+.filer-group label {
     display: flex;
     gap: 10px;
     align-items: center;
@@ -659,8 +658,94 @@ body {
     cursor: pointer;
 }
 
-.filer-group label input{
+.filer-group label input {
     width: 16px;
     height: 16px;
     accent-color: #ff6b35;
+}
+
+/* course detail */
+/* Trang chi tiết khóa học - đơn giản cho beginner */
+.course-detail {
+    padding: 60px 0;
+    background: white;
+}
+
+.detail-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.course-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.course-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.course-info {
+    flex: 1;
+    min-width: 300px;
+    padding: 10px 0;
+}
+
+.course-info h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.course-info p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.btn-enroll {
+    background-color: #ff6b35;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-enroll:hover {
+    background-color: #e55a2b;
+}
+
+.course-description {
+    margin-bottom: 40px;
+}
+
+.course-description h3{
+    margin-bottom: 10px;
+}
+
+.lessons-section ul {
+    list-style: none;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    border-radius: 8px;
+    width: 50%;
+}
+
+.lessons-section li {
+    background: #f8f8f8;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}   
+
+.lessons-section h3{
+    margin-bottom: 10px;
 }

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chi tiết khóa học - EduPress</title>
+        <link rel="stylesheet" href="styles/main.css" />
+    </head>
+    <body>
+        <!-- header -->
+        <div class="header">
+            <div class="container">
+                <a class="logo" href="courses.html">EduPress</a>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+                <div class="user-menu" id="user-menu">
+                    <a class="btn-login" href="login.html">Login</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phần chi tiết khóa học -->
+        <section class="course-detail">
+            <div class="container">
+                <!-- Ảnh bên trái, thông tin bên phải -->
+                <div class="detail-row">
+                    <!-- Ảnh khóa học -->
+                    <div class="course-image">
+                        <img id="courseImage" src="" alt="Ảnh khóa học" />
+                    </div>
+
+                    <!-- Thông tin khóa học -->
+                    <div class="course-info">
+                        <h1 id="courseTitle">Tên khóa học</h1>
+                        <p id="courseCategory">
+                            <strong>Danh mục:</strong> ...
+                        </p>
+                        <p id="courseInstructor">
+                            <strong>Giảng viên:</strong> ...
+                        </p>
+                        <p id="courseLevel"><strong>Level:</strong> ...</p>
+                        <p id="coursePrice"><strong>Giá:</strong> ...</p>
+                        <p id="courseDuration">
+                            <strong>Thời lượng:</strong> ...
+                        </p>
+                        <p id="courseStudents">
+                            <strong>Học viên:</strong> ...
+                        </p>
+                        <p id="courseLessons"><strong>Bài học:</strong> ...</p>
+
+                        <!-- Nút đăng ký (sẽ thay đổi sau) -->
+                        <button id="enrollBtn" class="btn-enroll">
+                            Đăng ký khóa học
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mô tả khóa học -->
+                <div class="course-description">
+                    <h3>Mô tả khóa học</h3>
+                    <p id="courseDescription">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident sunt quae nobis iusto consequatur libero, laboriosam facilis, sit aut quo dicta iste sed, doloremque assumenda error exercitationem eaque debitis magni consectetur voluptatum! Odit voluptatem cupiditate repellat quis aspernatur libero minus, ipsam deleniti quidem quasi odio, maxime ratione magni incidunt saepe voluptatum natus culpa vero recusandae earum ab temporibus quo ut omnis? Veritatis, dolores! Quidem, beatae placeat accusantium adipisci fugiat, alias at totam tempora ipsa optio in. Ipsam dolore, obcaecati in excepturi doloribus sint sequi fugiat a dolores dolorem sit architecto minus illo reprehenderit at repellendus rerum eveniet amet? Pariatur, impedit.
+                    </p>
+                </div>
+
+                <!-- Danh sách bài học -->
+                <div class="lessons-section">
+                    <h3>Danh sách bài học</h3>
+                    <ul id="lessonsList">
+                        <!-- JS sẽ thêm các li vào đây -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- footer -->
+        <div class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h5>EduPress</h5>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Sed do eiusmod tempor incididunt ut labore.
+                        </p>
+                    </div>
+                    <div class="footer-links">
+                        <h6>GET HELP</h6>
+                        <p>Contact Us</p>
+                        <p>Articles</p>
+                        <p>FAQ</p>
+                    </div>
+                    <div class="footer-links">
+                        <h6>PROGRAMS</h6>
+                        <p>Art & Design</p>
+                        <p>Business</p>
+                        <p>IT & Software</p>
+                        <p>Languages</p>
+                        <p>Programming</p>
+                    </div>
+                    <div class="footer-links">
+                        <h6>CONTACT US</h6>
+                        <p>Address: 221 New Design Str, Lorem Ipsum 10</p>
+                        <p>Hudson Yards, USA</p>
+                        <p>Tel.: + (123) 2500-567-8988</p>
+                        <p>Mail: supportme@gmail.com</p>
+                    </div>
+                </div>
+                <hr />
+                <p class="copyright">
+                    Copyright © 2024 LearnPress LMS | Powered by ThinPress
+                </p>
+            </div>
+        </div>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>
