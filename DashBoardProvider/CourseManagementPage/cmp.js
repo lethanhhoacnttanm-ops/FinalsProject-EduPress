@@ -1,19 +1,19 @@
 // --------- 🔴 Course Management -------------
-const picture = "../img/kh-laptirnh.png";
+// const picture = "../img/kh-laptirnh.png";
 
-const listcourses = [
-    { 
-        id: 1, 
-        thumbnails: {
-            picture: picture, 
-            nameCourse: "Khóa học lập trình JavaScript", 
-        },
-        Cashier: 500, 
-        quantityStu: 30, 
-        status: "active",
-        CreateDate: "27-12-2025"
-    },
-];
+// const listcourses = [
+//     { 
+//         id: 1, 
+//         thumbnails: {
+//             picture: picture, 
+//             nameCourse: "Khóa học lập trình JavaScript", 
+//         },
+//         Cashier: 500, 
+//         quantityStu: 30, 
+//         status: "active",
+//         CreateDate: "27-12-2025"
+//     },
+// ];
 
 function renderListCourse() {
     const tableBody = document.getElementById('table-body-render-CMP');
@@ -57,9 +57,6 @@ function renderListCourse() {
         <div class="table-list__body">${item.CreateDate || item.date}</div>
 
         <div class="table-list__body">
-                <button class="btn-action add" onclick="addCourse(${item.id})" title="Thêm">
-                    <i class="fa-solid fa-circle-plus"></i>
-                </button>
                 <button class="btn-action edit" onclick="editCourse(${item.id})" title="Sửa">
                     <i class="fa-solid fa-pen"></i>
                 </button>
@@ -88,6 +85,10 @@ function deleteCourse(id) {
         // Vẽ lại bảng ngay lập tức
         renderListCourse();
     }
+}
+
+function addCourse(){
+    window.location.href = "./CourseCreate&EditPage/ccep.html"
 }
 
 

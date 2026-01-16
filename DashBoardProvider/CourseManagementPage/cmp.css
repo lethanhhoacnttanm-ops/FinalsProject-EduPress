@@ -102,6 +102,44 @@
         }
 
 
+        .header-container-CCEP__previous-page{
+
+            .ccep-interact__save > button,
+            .ccep-interact__sendRequest > button{
+                background: none;
+
+                outline: none;
+
+                color: #ffffff;
+
+                padding: 12px 20px;
+
+                border: none;
+
+                border-left: 2px solid orange;
+
+                cursor: pointer;
+
+                transition: transform 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+            }
+
+            button:hover{
+                transform: scale(1.01);
+                background-color: beige;
+                color: black;
+            }
+
+            .ccep-interact__previous-page{
+                i{
+                    color: #f3f4f6;
+
+                    font-size: larger;
+                }
+            }
+
+            
+        }
+
 }
 
 }
@@ -339,6 +377,44 @@
         }
         
     }
+
+    .section-container-CMP__addnewcourse{
+        position: fixed;
+
+        bottom: 20px;
+        right: 20px;
+
+        width: 30px;
+        height: 30px;
+
+        background-color: #15803d;
+
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+
+        i{
+            color: #ffffff;
+        }
+
+        i:active{
+            color: yellow;
+            font-size: small;
+        }
+
+        button{
+            background: none;
+
+            cursor: pointer;
+
+            border: none;
+        }
+        
+    }
 }
 
 
@@ -398,7 +474,7 @@
             
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 2fr 2fr;
 
             grid-template-rows: 1fr 1fr;
 
@@ -406,6 +482,7 @@
             
             background-color: #fefefe6e;
 
+            .Input__Idcourse,
             .Input__NameCourse,
             .Input__ShortDescription,
             .Input__DetailDescription,
@@ -490,9 +567,18 @@
 
             text-align: center;
 
+            grid-gap: 10px;
+
             .RemoteThreeAction__btn-save,
             .RemoteThreeAction__btn-release,
             .RemoteThreeAction__btn-delete{
+
+                padding: 12px;
+
+                background-color: #15803d;
+
+                border-radius: 10px;
+
 
                 button{
 
@@ -503,6 +589,8 @@
                     outline: none;
 
                     cursor: pointer;
+
+                    color: #dcfce7;
 
                    
                 }

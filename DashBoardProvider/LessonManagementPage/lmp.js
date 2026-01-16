@@ -116,6 +116,16 @@ function transToPage(id){
 }
 
 
+// LCEP 
+
+const showCaseLMP = document.getElementById('hidden-basicinfo');
+
+let showListLmp = '';
+
+
+
+
+
 function goToPage(address){
     window.location.href = address;
 }

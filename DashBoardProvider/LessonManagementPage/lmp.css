@@ -103,74 +103,14 @@
 .section-lcep-container{
 
     
-    display: grid;
-
-    grid-template-columns: 1fr 4fr;
-
-    height: 20vh;
-
-    /* <!-- 2.1 nav (30%) --> */
-    .section-lcep-container__navbar{
-
-        background-color: #333;
-
-        padding: 24px 36px;
-
-        
-
-            .list-navbar{
-
-    
-                padding: 12px 24px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-    
-                margin: 24px 0;
-    
-                border-radius: 10px;
-    
-                cursor: pointer;
-    
-                
-    
-                background-color: bisque;
-    
-                p{
-                    font-size: 1.3rem;
-    
-                    font-weight: 700;
-                }
-    
-                i{
-                    border-radius: 100% ;
-                    transition: transform 0.3s ease;
-                }
-    
-                i:hover{
-                    transform: scale(1.3);
-                }
-    
-                i:active{
-                    font-weight: 700;
-                }
-            }
-    
-            .list-navbar:hover{
-                box-shadow: 0px 0px 7px 5px #ffffff;
-            }
-        
-
-
-        
-    }
-
-    
     
 
-    /* <!-- 2.2 content (70%) --> */
+    /* <!-- 2.1 content  --> */
     .section-lcep-container__main-content{
-       background-color: rgb(255, 255, 255);
+
+        width: 100%;
+        height: 100vh;
+     
 
        background-image: url(../img/background-trang-cuc-dep.jpg);
 
@@ -180,297 +120,179 @@
 
        display: grid;
 
-       grid-template-columns: 3fr 1fr;
+       grid-template-rows: 1fr 3fr;
+
+       grid-gap: 10px;
 
 
-       grid-gap: 5px;
-
-       .main-content__main{
-
-             display: grid;
-
-             grid-template-rows: 1fr 3fr ;
-
-             background-color: #333;
-
-             padding: 5px;
-
-             border-radius: 10px;
-             
-             grid-gap: 5px;
 
 
-             /* <!-- Khối này dành cho thông tin chung --> */
-             .main__block-content-speacial{
-                background-color: rgb(255, 255, 255);
-                border-radius: 10px;
 
-                padding: 24px;
+       .main-containt__allinfo{
 
+           display: grid;
+
+           grid-template-columns: 3fr 1fr 1fr;
+
+           border-radius: 10px;
+
+
+        /* Bassic infomation */
+           .main-content__bassinfo{
+               background-color:    #f4f4f475;
+
+               display: grid;
+
+               grid-template-rows: 1fr 1fr 1fr;
+
+               padding: 12px;
+
+               grid-gap: 10px;
+
+               .bassinfo__title{
+                margin: auto 0;
+                 text-align: center;
+
+               }
+
+               .bassinfo__title-lesson{
+
+                  input{
+                     width: 100%;
+                     padding: 12px;
+                     border: none;
+                     border-radius: 5px;
+                  }
+                  
+               }
+
+               .bassinfo__description-lesson{
+                  input{
+                     width: 100%;
+                     padding: 12px;
+                     border: none;
+                     border-radius: 5px;
+                  }
+               }
+           }
+        /* Action  */
+           .main-content__actionfooter{
+            background-color: #f4f4f475;
                 
-
-                .design-fillout-form{
-
-                    display: grid;
-
-                    grid-template-columns: 1fr 2fr;
-
-                    padding:20px;
-
-                    align-items: center;
-
-                    input{
-                        padding: 10px 12px;
-                        border-radius: 10px;
-                        border: 2px solid #d1d5db;
-
-                        outline: none;
-
-                        
-                    }
-
-                    input:focus{
-                        border-color: #2563eb; 
-                        box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
-                    }
-
-                }
-
-             }
-
-             /* <!-- Khối này dành cho cấu trúc bài giảng--> */
-             .main__block-structured-lesson{
-                background-color: rgb(255, 255, 255);
-                border-radius: 10px;
-
-                padding: 15px;
-
                 display: grid;
-                
 
                 grid-template-rows: 1fr 1fr;
 
-                .lesson-item{
-                    display: grid;
-                    grid-template-rows: 1fr 1fr;
+                align-items: center;
 
-                    padding: 24px;
-                    
-                    grid-gap: 10px;
-
-                    textarea{
-                        resize: vertical;
-                        width: 100%;
-                        padding: 10px;
-                        border: 2px solid #d1d5db;
-                        border-radius: 6px;
-                        outline: none;
-                    }
-
-                    input{
-                        width: 100%;
-                        padding: 10px;
-                        border: 2px solid #d1d5db;
-                        border-radius: 6px;
-                        outline: none;
-                    }
-
-                    input:focus,
-                    textarea:focus{
-                        border-color: #2563eb; 
-                        box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
-                    }
-                    
+                .actionfooter__title{
+                    text-align: center;                   
                 }
 
-                .attachment-item{
-                    padding: 24px;
+                .actionfooter__action{
+                    
+                   text-align: center;
 
-                    .attachment-item__file-display-box {
-                        width: 100%;
-                        height: 100px; 
+                   button{
+                    background-color: green;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 10px;
 
-                        border: 2px dashed #d1d5db;
+                    color: #ffffff;
 
-                        border-radius: 8px;
+                    cursor: pointer;
+                   }
 
-                        display: flex;
-
-                        flex-direction: column;
-
-                        align-items: center;
-
-                        justify-content: center;
-
-                        background-color: #f9fafb;
-                        margin-bottom: 10px;
-                        padding: 10px;
-                    }
-
-                    .attachment-item__file-display-box i {
-                        font-size: 2rem;
-                        color: #9ca3af;
-                    }
-
-                    .btn-delete:disabled {
-                        cursor: not-allowed;
-                        opacity: 0.5;
-                    }
+                   button:active{
+                     color: yellow;
+                     font-size: small;
+                   }
+                   
                 }
-             }
-       }
-
-       .main-content__attributes{
-             background-color: rgb(0, 0, 0);
-
-             display: grid;
-
-             grid-template-rows: 1fr 1fr 1fr;
-
-             gap: 10px;
-
-             grid-gap: 5px;
-
-             padding: 5px;
-
-             border-radius: 10px;
-
-             /* <!-- Khối hình ảnh đại diện -->  */
-             /* Đang dừng khúc này để thiết kế gioa diện add ảnh địa diện vào  */
-            .attributes__block-Profile-picture{
-                background-color: rgb(255, 255, 255);
-                border-radius: 10px;
+           } 
+        /* Attach document */
+           .main-content__attachdocument{
+                 background-color: #f4f4f475;
 
                 display: grid;
 
-                grid-template-rows: 3fr 1fr;
+                grid-template-rows: 1fr 1fr;
 
-                padding: 15px;
+                align-items: center;
+                 .attachdocument__title{
+                    text-align: center;
+                 }
 
-                .block-Profile-picture__picture{
-                    width: 250px;
-                    height: 150px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    border: 2px dashed #ccc;
+                 .attachdocument__fileLesson{
 
-                    overflow: hidden;
-                    background-color: #f9f9f9;
-
-                    cursor: pointer;
-
-                    i{
-                        font-size: 1.6rem;
-                        display: none;
-
-
+                    label{
+                        color: red;
                     }
-                    
-                }
+                      
+                    input{
+                        background-color: green;
 
-                .block-Profile-picture__picture:hover{
-                    background-color: #f3f4f6; 
-                    border: 2px dashed #d1d5db;
+                        border: none;
 
-                    i{
-                        transform: scale(1.2);
-                        display: block;
+                        cursor: pointer;
+
+                        color: #ffffff;
                     }
-                }
-
-                .block-Profile-picture__interact{
-                    margin-top: 20px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-
-                    .interact-choose,
-                    .interact-delete{
-                           padding: 6px;
-
-                           border-radius: 8px;
-
-                           cursor: pointer;
-                    }
-
-                    .interact-delete:disabled {
-                    background-color: #e5e7eb; 
-                    color: #9ca3af;           
-                    cursor: not-allowed;      
-                    border: 1px solid #d1d5db;
-}
-                }
-                
-            }
-
-            /* <!-- Khối giá cả --> */
-            .attributes__block-prices{
-                background-color: rgb(255, 255, 255);
-                border-radius: 10px;
-
-                padding: 24px;
-
-                .block-prices__info-label{
-                    display: block;
-                    font-weight: bold;
-                    margin-bottom: 10px;
-                    color: #374151;
-                }
-
-                .block-prices__price-inputs input{
-                    width: 100%;
-                    padding: 10px;
-                    border: 2px solid #d1d5db;
-                    border-radius: 6px;
-                    margin-bottom: 8px;
-                    outline: none;
-                }
-
-                .block-prices__price-inputs input:focus{
-                    border-color: #2563eb; 
-                    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
-                }
-
-                .block-prices__info-note {
-                    font-size: 12px;
-                    color: #6b7280;
-                    font-style: italic;
-                }
-
-            }
-
-            /* <!-- Khối phân loại --> */
-            .attributes__block-Classify{
-                background-color: rgb(255, 255, 255);
-                border-radius: 10px;
-
-                padding: 24px;
-
-                .block-Classify__info-label{
-                    display: block;
-                    font-weight: bold;
-                    margin-bottom: 10px;
-                    color: #374151;
-                }
-
-
-                .block-Classify__category-select{
-                    width: 100%;
-                    padding: 10px;
-                    border: 2px solid #d1d5db;
-                    border-radius: 6px;
-                    margin-bottom: 8px;
-                    outline: none;
-                }
-
-                .block-Classify__category-select:focus{
-                    border-color: #2563eb; 
-                    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
-                }
-
-            }
+                 }
+           }
        }
+
+       
+
+       .main-content__areamedia{
+                 background-color: #f4f4f475;
+
+                 display: grid;
+
+                 grid-template-rows: 1fr 3fr 1fr;
+
+                 border-radius: 10px;
+
+                 .areamedia__title{
+                    margin: auto 0;
+                    text-align: center;
+
+                    color: red;
+                 }
+
+                 .areamedia__playvideo{
+
+                    padding: 24px;
+
+                    
+
+                    text-align: center;
+
+                    h3{
+                        font-size: 1.3rem;
+                    }
+
+                    video{
+
+                        margin-top: 10px;
+                        width: 100%;
+                        height:500px;
+                    }
+
+                 }
+
+                 .areamedia__uploadvideo{
+                        padding: 24px;
+
+                        margin: auto 0;
+
+                    text-align: center;
+                 }
+           }
+
+            
+       
     }
 }
 

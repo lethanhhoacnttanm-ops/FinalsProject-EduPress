@@ -22,7 +22,17 @@
         </div>
         <!-- previous page -->
         <div class="header-container-CCEP__previous-page">
-            <a href="../cmp.html"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            <div class="ccep-interact__save">
+                <button id="btn-submit-course">Gửi duyệt</button>
+            </div>
+
+            <div class="ccep-interact__sendRequest">
+                <button>Lưu nháp</button>
+            </div>
+
+            <div class="ccep-interact__previous-page">
+                <a href="../cmp.html"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            </div>
         </div>
     </div>
 
@@ -32,6 +42,12 @@
         <div class="section-container-CCEP__TypeingInputInfo">
             <!--  -->
             <div class="TypeingInputInfo__Input">
+
+                <div class="Input__Idcourse">
+                    <label for="idcourse">ID Course: </label>
+                    <input type="text" name="idcourse">
+                </div>
+
                  <div class="Input__NameCourse">
                     <label for="namecourse">Tên khóa học: </label>
                     <input type="text" name="namecourse" id="">
@@ -65,36 +81,36 @@
                 <!-- 30% -->
                 <div class="SettingArea__RemoteThreeAction">
                     <div class="RemoteThreeAction__btn-save">
-                        <button>Lưu nháp</button>
+                        <button>SAVE</button>
                     </div>
                     <div class="RemoteThreeAction__btn-release">
-                        <button>Phát hành</button>
+                        <button>RELEASE</button>
                     </div>
                     <div class="RemoteThreeAction__btn-delete">
-                        <button>Hủy</button>
+                        <button>DELETE</button>
                     </div>
                 </div>
                 
                 <!-- 70% -->
                 <div class="SettingArea__Category">
                     <div class="Category-detail">
-                        <label>Mục tiêu khóa học: </label>
+                        <label>Target Course: </label>
                         <select id="seleted-category-target" class="Category-detail__Select-major">
-                            <option value="">-- Danh mục ngành --</option>
-                            <option value="it">Công nghệ thông tin</option>
-                            <option value="business">Quản trị kinh doanh</option>
-                            <option value="language">Ngôn ngữ anh</option>
-                            <option value="design">Thiết kế</option>
+                            <option value="">-- List Major --</option>
+                            <option value="it">Infomation Technology</option>
+                            <option value="business">Business administration</option>
+                            <option value="language">English language</option>
+                            <option value="design">Design</option>
                         </select>
                     </div>
 
                     <div class="Category_prices">
-                        <label class="Category_prices__info-label"><i class="fa-solid fa-tags"></i> Giá khóa học (VNĐ)</label>
+                        <label class="Category_prices__info-label"><i class="fa-solid fa-tags"></i> Course price (VNĐ)</label>
                         <div class="Category_prices__price-inputs">
-                            <input type="number" id="Category_prices-root" placeholder="Giá gốc (vd: 500000)">
-                            <input type="number" id="Category_prices-reduce" placeholder="Giá giảm (nếu có)">
+                            <input type="number" id="Category_prices-root" placeholder="Original price (vd: 500000)">
+                            <input type="number" id="Category_prices-reduce" placeholder="Price reduction (nếu có)">
                         </div>
-                        <small class="Category_prices__info-note">* Để trống giá giảm nếu không có khuyến mãi</small>
+                        <small class="Category_prices__info-note">* Leave the discounted price field blank if there are no promotions.</small>
                     </div>
                 </div>
             </div>
@@ -114,8 +130,8 @@
 
 
                 <div class="avatarThumbnail__uploadpic">
-                    <button>Chọn ảnh</button>
-                    <button>Xóa ảnh</button>
+                    <button>Choose</button>
+                    <button>Delete Pic</button>
                 </div>
 
                 </div>
