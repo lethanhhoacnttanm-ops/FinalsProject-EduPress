@@ -3,73 +3,42 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Dang Ky</title>
-        <link rel="stylesheet" href="./styles/main.css" />
+        <title>Khóa học đã đăng ký</title>
+        <link rel="stylesheet" href="styles/main.css" />
         <link
+            href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-            
         />
-        <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     </head>
     <body>
         <!-- header -->
         <div class="header">
             <div class="container">
-                <a class="logo" href="#">EduPress</a>
+                <a class="logo" href="courses.html">EduPress</a>
                 <ul class="menu">
                     <li><a href="courses.html">Home</a></li>
                     <li><a href="mycourses.html">My Courses</a></li>
                     <li><a href="#">Blog</a></li>
                 </ul>
-                <div class="user-menu">
+                <div class="user-menu" id="user-menu">
                     <a class="btn-login" href="login.html">Login</a>
                 </div>
             </div>
         </div>
-        <!-- form dang ky -->
-        <div class="register-form">
-            <div class="container">
-                <div class="register-box">
-                    <h3>Register</h3>
-                    <form action="" id="registerForm">
-                        <input type="email" placeholder="Email *" required />
-                        <input type="text" placeholder="Username *" required />
-                        <div class="password-wrapper">
-                            <input
-                                type="password"
-                                id="password"
-                                placeholder="Password *"
-                                required
-                            />
-                            <i
-                                class="toggle-password fas fa-eye"
-                                onclick="togglePassword('password')"
-                            ></i>
-                        </div>
 
-                        <div class="password-wrapper">
-                            <input
-                                type="password"
-                                id="confirmPassword"
-                                placeholder="Confirm Password *"
-                                required
-                            />
-                            <i
-                                class="toggle-password fas fa-eye"
-                                onclick="togglePassword('confirmPassword')"
-                            ></i>
-                        </div>
-                        <button type="submit">Register</button>
-                    </form>
-                    <p class="login-link">
-                        Already have an account?
-                        <a href="login.html">Login here</a>
+        <section class="my-courses">
+            <div class="container">
+                <p>Các khóa học bạn đã đăng ký</p>
+
+                <div id="myCoursesList" class="courses-grid">
+                    <!-- JS render courses here -->
+                    <p class="loading">
+                        Đang tải danh sách khóa học của bạn...
                     </p>
                 </div>
             </div>
-        </div>
-        <!-- footer -->
+        </section>
+
         <div class="footer">
             <div class="container">
                 <div class="footer-content">
@@ -109,6 +78,6 @@
             </div>
         </div>
 
-        <script src="./js/main.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

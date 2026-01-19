@@ -118,7 +118,7 @@ if (loginForm) {
     });
 }
 
-// courses.html user-menu component handling
+// courses.html user-menu component handling -> show user info if logged in
 document.addEventListener("DOMContentLoaded", function () {
     const userMenu = document.getElementById("user-menu");
     const currentUser = localStorage.getItem("currentUser");
@@ -129,9 +129,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         userMenu.innerHTML = `
         <div class="user-info">
-        <div class="user-avatar">${firstLetter}</div>
-        <span class="user-name">${user.username}</span>
-        </div>`;
+            <div class="user-avatar">${firstLetter}</div>
+            <span class="user-name">${user.username}</span>
+        </div>
+        <button id="logoutBtn" class="btn-logout">Logout</button>
+        `;
+
+        //logout handling
+        const logoutBtn = document.getElementById("logoutBtn");
+        logoutBtn.addEventListener("click", function () {
+            localStorage.removeItem("currentUser");
+            alert("Bạn đã đăng xuất.");
+            window.location.href = "login.html";
+        });
     } else {
         userMenu.innerHTML = `<a class="btn-login" href="login.html">Login</a>`;
     }
@@ -400,7 +410,6 @@ if (document.getElementById("searchInput")) {
 }
 
 // Course detail page
-// ===== TRANG CHI TIẾT KHÓA HỌC =====
 const urlParams = new URLSearchParams(window.location.search);
 const courseId = parseInt(urlParams.get("id"));
 
@@ -410,7 +419,6 @@ if (courseId && document.getElementById("courseTitle")) {
     if (course) {
         document.getElementById("courseTitle").textContent = course.title;
 
-        // Các chi tiết khác: thêm <strong> cho nhãn
         document.getElementById("courseCategory").innerHTML =
             "<strong>Danh mục:</strong> " + course.category;
         document.getElementById("courseInstructor").innerHTML =
@@ -426,15 +434,12 @@ if (courseId && document.getElementById("courseTitle")) {
         document.getElementById("courseLessons").innerHTML =
             "<strong>Bài học:</strong> " + course.lessons;
 
-        // Ảnh
         document.getElementById("courseImage").src = course.image;
 
-        // Mô tả (không cần đậm)
         document.getElementById("courseDescription").textContent =
             course.description ||
             "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident sunt quae nobis iusto consequatur libero, laboriosam facilis, sit aut quo dicta iste sed, doloremque assumenda error exercitationem eaque debitis magni consectetur voluptatum! Odit voluptatem cupiditate repellat quis aspernatur libero minus, ipsam deleniti quidem quasi odio, maxime ratione magni incidunt saepe voluptatum natus culpa vero recusandae earum ab temporibus quo ut omnis? Veritatis, dolores! Quidem, beatae placeat accusantium adipisci fugiat, alias at totam tempora ipsa optio in. Ipsam dolore, obcaecati in excepturi doloribus sint sequi fugiat a dolores dolorem sit architecto minus illo reprehenderit at repellendus rerum eveniet amet? Pariatur, impedit.";
 
-        // Danh sách bài học (giữ nguyên)
         const lessonsList = document.getElementById("lessonsList");
         lessonsList.innerHTML = "";
         for (let i = 1; i <= course.lessons; i++) {
@@ -443,5 +448,108 @@ if (courseId && document.getElementById("courseTitle")) {
     } else {
         document.getElementById("courseTitle").textContent =
             "Không tìm thấy khóa học";
+    }
+}
+
+// Enroll button handling
+const enrollBtn = document.getElementById("enrollBtn");
+
+if (enrollBtn && courseId) {
+    const currentUser = localStorage.getItem("currentUser");
+
+    if (!currentUser) {
+        // Chưa login → chuyển sang login
+        enrollBtn.textContent = "Đăng nhập để đăng ký";
+        enrollBtn.addEventListener("click", function () {
+            window.location.href = "login.html";
+        });
+    } else {
+        // Đã login → lấy user
+        const user = JSON.parse(currentUser);
+
+        if (!user.enrolledCourses) {
+            user.enrolledCourses = [];
+        }
+
+        // Kiểm tra đã enroll khóa chưa
+        const isEnrolled = user.enrolledCourses.includes(courseId);
+
+        if (isEnrolled) {
+            enrollBtn.textContent = "Đã đăng ký";
+            enrollBtn.classList.add("btn-enrolled");
+            enrollBtn.disabled = true;
+        } else {
+            enrollBtn.addEventListener("click", function () {
+                // confirm dialog box
+                const courseTitle =
+                    document.getElementById("courseTitle").textContent;
+                const confirmMsg = `Bạn có chắc chắn muốn đăng ký khóa học "${courseTitle}" không?\n\nSau khi đăng ký, bạn sẽ có thể truy cập nội dung đầy đủ.`;
+
+                if (confirm(confirmMsg)) {
+                    user.enrolledCourses.push(courseId);
+                    localStorage.setItem("currentUser", JSON.stringify(user));
+
+                    enrollBtn.textContent = "Đã đăng ký";
+                    enrollBtn.classList.add("btn-enrolled");
+                    enrollBtn.disabled = true;
+
+                    alert(
+                        "Đăng ký khóa học thành công!\nBạn có thể xem trong phần My Courses."
+                    );
+                } else {
+                    alert("Đã hủy đăng ký.");
+                }
+            });
+        }
+    }
+}
+
+// My Courses page
+const myCoursesList = document.getElementById("myCoursesList");
+
+if (myCoursesList) {
+    const currentUser = localStorage.getItem("currentUser");
+
+    if (!currentUser) {
+        myCoursesList.innerHTML =
+            '<p class="no-courses">Vui lòng đăng nhập để xem khóa học của bạn.</p>';
+    } else {
+        const user = JSON.parse(currentUser);
+
+        // Nếu chưa có khóa học
+        if (!user.enrolledCourses || user.enrolledCourses.length === 0) {
+            myCoursesList.innerHTML =
+                '<p class="no-courses">Bạn chưa đăng ký khóa học nào. <a href="courses.html">Khám phá ngay!</a></p>';
+        } else {
+            myCoursesList.innerHTML = ""; // Xóa dòng loading
+
+            // Lọc các khóa học đã đăng ký
+            const enrolledCourses = coursesData.filter((course) =>
+                user.enrolledCourses.includes(course.id)
+            );
+
+            if (enrolledCourses.length === 0) {
+                myCoursesList.innerHTML =
+                    '<p class="no-courses">Không tìm thấy khóa học đã đăng ký.</p>';
+            } else {
+                enrolledCourses.forEach((course) => {
+                    const card = `
+                        <div class="my-course-card">
+                            <img src="${course.image}" alt="${course.title}">
+                            <div class="content">
+                                <span class="category">${course.category}</span>
+                                <h3>${course.title}</h3>
+                                <p class="instructor">by ${course.instructor}</p>
+                                <p class="meta">${course.duration} • ${course.students} Students • ${course.lessons} Lessons </p>
+                                <p class="meta level">Level: <strong>${course.level}</strong></p>
+                                <p class="price">${course.price}</p>
+                                <a href="course-detail.html?id=${course.id}" target="blank" class="btn-view">Tiếp tục học</a>
+                            </div>
+                        </div>
+                        `;
+                    myCoursesList.innerHTML += card;
+                });
+            }
+        }
     }
 }

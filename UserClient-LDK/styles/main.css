@@ -665,7 +665,6 @@ body {
 }
 
 /* course detail */
-/* Trang chi tiết khóa học - đơn giản cho beginner */
 .course-detail {
     padding: 60px 0;
     background: white;
@@ -692,12 +691,11 @@ body {
 .course-info {
     flex: 1;
     min-width: 300px;
-    padding: 10px 0;
 }
 
 .course-info h1 {
     font-size: 28px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .course-info p {
@@ -714,18 +712,26 @@ body {
     font-size: 18px;
     cursor: pointer;
     width: 100%;
-    margin-top: 10px;
 }
 
 .btn-enroll:hover {
     background-color: #e55a2b;
 }
 
+.btn-enrolled {
+    background: #28a745;
+    cursor: default;
+}
+
+.btn-enrolled:hover {
+    background: #218838;
+}
+
 .course-description {
     margin-bottom: 40px;
 }
 
-.course-description h3{
+.course-description h3 {
     margin-bottom: 10px;
 }
 
@@ -744,8 +750,130 @@ body {
     margin-bottom: 10px;
     border-radius: 8px;
     border: 1px solid #ddd;
-}   
+}
 
-.lessons-section h3{
+.lessons-section li:hover {
+    cursor: pointer;
+}
+
+.lessons-section h3 {
     margin-bottom: 10px;
+}
+
+/* My Courses */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Thông báo khi chưa có khóa học */
+.loading,
+.no-courses {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    padding: 60px 0;
+    grid-column: 1 / -1;
+}
+
+/* myCourses / Card khóa học */
+.my-courses {
+    padding: 10px 0;
+}
+
+#myCoursesList {
+    margin-top: 10px;
+}
+
+.my-course-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.my-course-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+
+.my-course-card .content {
+    padding: 15px;
+}
+
+.my-course-card h3 {
+    font-size: 18px;
+    margin: 10px 0 8px 0;
+}
+
+.my-course-card p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.my-course-card .btn-view {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: #ff6b35;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 15px;
+}
+
+.my-course-card .btn-view:hover {
+    background: #e55a2b;
+}
+
+.my-course-card .category {
+    display: inline-block;
+    background: #000;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.my-course-card .meta {
+    color: #ff6b35;
+    font-size: 13px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.my-course-card .meta.level {
+    color: #555;
+    font-weight: 500;
+}
+
+/* Bo sung button log out */
+.user-menu{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-logout {
+    padding: 8px 20px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    position: absolute;
+    right: 10px;
+}
+
+.btn-logout:hover {
+    background: #555;
 }

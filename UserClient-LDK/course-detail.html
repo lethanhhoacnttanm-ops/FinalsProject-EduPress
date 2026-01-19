@@ -5,6 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Chi tiết khóa học - EduPress</title>
         <link rel="stylesheet" href="styles/main.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <!-- header -->
@@ -12,8 +16,8 @@
             <div class="container">
                 <a class="logo" href="courses.html">EduPress</a>
                 <ul class="menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Courses</a></li>
+                    <li><a href="courses.html">Home</a></li>
+                    <li><a href="mycourses.html">My Courses</a></li>
                     <li><a href="#">Blog</a></li>
                 </ul>
                 <div class="user-menu" id="user-menu">
@@ -25,14 +29,11 @@
         <!-- Phần chi tiết khóa học -->
         <section class="course-detail">
             <div class="container">
-                <!-- Ảnh bên trái, thông tin bên phải -->
                 <div class="detail-row">
-                    <!-- Ảnh khóa học -->
                     <div class="course-image">
                         <img id="courseImage" src="" alt="Ảnh khóa học" />
                     </div>
 
-                    <!-- Thông tin khóa học -->
                     <div class="course-info">
                         <h1 id="courseTitle">Tên khóa học</h1>
                         <p id="courseCategory">
@@ -51,26 +52,37 @@
                         </p>
                         <p id="courseLessons"><strong>Bài học:</strong> ...</p>
 
-                        <!-- Nút đăng ký (sẽ thay đổi sau) -->
-                        <button id="enrollBtn" class="btn-enroll">
-                            Đăng ký khóa học
-                        </button>
+                        <div class="course-actions">
+                            <button id="enrollBtn" class="btn-enroll">
+                                Đăng ký khóa học
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Mô tả khóa học -->
                 <div class="course-description">
                     <h3>Mô tả khóa học</h3>
                     <p id="courseDescription">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident sunt quae nobis iusto consequatur libero, laboriosam facilis, sit aut quo dicta iste sed, doloremque assumenda error exercitationem eaque debitis magni consectetur voluptatum! Odit voluptatem cupiditate repellat quis aspernatur libero minus, ipsam deleniti quidem quasi odio, maxime ratione magni incidunt saepe voluptatum natus culpa vero recusandae earum ab temporibus quo ut omnis? Veritatis, dolores! Quidem, beatae placeat accusantium adipisci fugiat, alias at totam tempora ipsa optio in. Ipsam dolore, obcaecati in excepturi doloribus sint sequi fugiat a dolores dolorem sit architecto minus illo reprehenderit at repellendus rerum eveniet amet? Pariatur, impedit.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Provident sunt quae nobis iusto consequatur
+                        libero, laboriosam facilis, sit aut quo dicta iste sed,
+                        doloremque assumenda error exercitationem eaque debitis
+                        magni consectetur voluptatum! Odit voluptatem cupiditate
+                        repellat quis aspernatur libero minus, ipsam deleniti
+                        quidem quasi odio, maxime ratione magni incidunt saepe
+                        voluptatum natus culpa vero recusandae earum ab
+                        temporibus quo ut omnis? Veritatis, dolores! Quidem,
+                        beatae placeat accusantium adipisci fugiat, alias at
+                        totam tempora ipsa optio in. Ipsam dolore, obcaecati in
+                        excepturi doloribus sint sequi fugiat a dolores dolorem
+                        sit architecto minus illo reprehenderit at repellendus
+                        rerum eveniet amet? Pariatur, impedit.
                     </p>
                 </div>
 
-                <!-- Danh sách bài học -->
                 <div class="lessons-section">
                     <h3>Danh sách bài học</h3>
                     <ul id="lessonsList">
-                        <!-- JS sẽ thêm các li vào đây -->
                     </ul>
                 </div>
             </div>
