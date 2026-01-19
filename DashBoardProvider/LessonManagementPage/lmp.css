@@ -59,8 +59,8 @@
     .header-lmp-interact,
     .header-lcep-interact{
 
-        .lcep-interact__save > button,
-        .lcep-interact__sendRequest > button{
+        .lcep-interact__save > button
+        {
             background: none;
 
             outline: none;
@@ -156,23 +156,54 @@
                }
 
                .bassinfo__title-lesson{
+                 
+                display: flex;
 
-                  input{
-                     width: 100%;
-                     padding: 12px;
-                     border: none;
-                     border-radius: 5px;
-                  }
+                flex-direction: column;
+
+                align-items:left;
+
+                gap: 12px;
+
+                label{
+                    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+                    font-weight: 500;
+                }
+
+                input{
+                    width: 100%;
+                    padding: 12px;
+                    border: none;
+                    border-radius: 5px;
+                }
                   
                }
 
                .bassinfo__description-lesson{
-                  input{
-                     width: 100%;
-                     padding: 12px;
-                     border: none;
-                     border-radius: 5px;
-                  }
+                
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: left;
+
+                gap: 12px; 
+
+                label{
+                    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+                    font-weight: 500;
+                }
+
+
+                input{
+                    width: 100%;
+                    padding: 12px;
+                    border: none;
+                    border-radius: 5px;
+                }
                }
            }
         /* Action  */
@@ -206,7 +237,7 @@
 
                    button:active{
                      color: yellow;
-                     font-size: small;
+                     background-color: #2563eb;
                    }
                    
                 }
@@ -220,26 +251,64 @@
                 grid-template-rows: 1fr 1fr;
 
                 align-items: center;
+
+                
                  .attachdocument__title{
                     text-align: center;
                  }
 
-                 .attachdocument__fileLesson{
+                 .attachdocument__fileLesson {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start; 
+                    gap: 12px;
+                }
 
-                    label{
-                        color: red;
-                    }
-                      
-                    input{
-                        background-color: green;
+                .custom-file-upload {
+                    color: #cc4343;
+                    cursor: pointer;
+                    font-size: 1.2rem;
+                }
 
-                        border: none;
+                .attachdocument__fileLesson .custom-file-upload:hover {
+                    opacity: 0.7;
+                }
 
-                        cursor: pointer;
+                .file-block {
+                    display: none; 
+                    align-items: center;
+                    background-color: #f8f9fa;
+                    padding: 10px;
+                    border-left: 5px solid #e74c3c;
+                    border-radius: 4px;
+                }
 
-                        color: #ffffff;
-                    }
-                 }
+                
+                #file-name {
+                    font-weight: 500;
+                    color: #333;
+                }
+
+                .file-block i {
+                    color: #e74c3c;
+                    font-size: 20px;
+                    margin-right: 10px;
+                }
+
+                
+                .remove-btn {
+                    margin-left: 15px;
+                    background: none;
+                    border: none;
+                    color: #999;
+                    font-size: 20px;
+                    cursor: pointer;
+                    line-height: 1;
+                }
+
+                .remove-btn:hover {
+                    color: #e74c3c;
+                }
            }
        }
 

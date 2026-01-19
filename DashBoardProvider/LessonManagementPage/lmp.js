@@ -129,3 +129,6 @@ let showListLmp = '';
 function goToPage(address){
     window.location.href = address;
 }
+
+
+

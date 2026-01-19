@@ -15,25 +15,6 @@ forgotPasswordLink.addEventListener('click', function(event) {
     }
 });
 
-
-
-// function login() {
-//     const email = document.getElementById('1').value;
-//     const password = document.getElementById('2').value;
-
-//     if (email === "admin@gmail.com" && password === "123456") {
-//         alert("Đăng nhập thành công với quyền Admin!");
-//         window.location.href = "../DashBoardAdmin/dashboard.html";
-//     } 
-//     else if (email === "provider123@gmail.com" && password === "686868") {
-//         alert("Đăng nhập thành công với quyền Provider!");
-//         window.location.href = "../DashBoardProvider/dashboardProvider.html";
-//     } 
-//     else {
-//         alert("Sai tài khoản hoặc mật khẩu!");
-//     }
-// }
-
 function isAdminAccount(){
     
     const adminAccount = {
