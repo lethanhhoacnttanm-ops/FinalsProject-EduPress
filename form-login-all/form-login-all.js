@@ -17,21 +17,86 @@ forgotPasswordLink.addEventListener('click', function(event) {
 
 
 
-function login() {
-    const email = document.getElementById('1').value;
-    const password = document.getElementById('2').value;
+// function login() {
+//     const email = document.getElementById('1').value;
+//     const password = document.getElementById('2').value;
 
-    if (email === "admin@gmail.com" && password === "123456") {
-        alert("Đăng nhập thành công với quyền Admin!");
-        window.location.href = "../DashBoardAdmin/dashboard.html";
-    } 
-    else if (email === "provider123@gmail.com" && password === "686868") {
-        alert("Đăng nhập thành công với quyền Provider!");
-        window.location.href = "../DashBoardProvider/dashboardProvider.html";
-    } 
-    else {
-        alert("Sai tài khoản hoặc mật khẩu!");
+//     if (email === "admin@gmail.com" && password === "123456") {
+//         alert("Đăng nhập thành công với quyền Admin!");
+//         window.location.href = "../DashBoardAdmin/dashboard.html";
+//     } 
+//     else if (email === "provider123@gmail.com" && password === "686868") {
+//         alert("Đăng nhập thành công với quyền Provider!");
+//         window.location.href = "../DashBoardProvider/dashboardProvider.html";
+//     } 
+//     else {
+//         alert("Sai tài khoản hoặc mật khẩu!");
+//     }
+// }
+
+function isAdminAccount(){
+    
+    const adminAccount = {
+        email: "admin@123gmail.com",
+        password: "123456"
     }
+
+    localStorage.setItem('AccountAdmin', JSON.stringify(adminAccount));
+
 }
+
+function isProviderAccount(){
+    const providerAccount = {
+        email: "lethanhhoa118@gmail.com",
+        password: "686868"
+    }
+
+    localStorage.setItem('AccountProvider', JSON.stringify(providerAccount));
+}
+
+
+
+function login(){
+      const email = document.getElementById('1').value.trim();
+      const password = document.getElementById('2').value.trim();
+
+      const getDataAdmin = JSON.parse(localStorage.getItem('AccountAdmin'))
+      const getDataProvider = JSON.parse(localStorage.getItem('AccountProvider'))   
+
+      const isAdmin = (email === getDataAdmin.email);
+      const isProvider = (email === getDataProvider.email);
+
+      if(!isAdmin && !isProvider){
+        alert("This account does not exist.");
+        return;
+      }
+
+      if(isAdmin){
+    
+          if(password === getDataAdmin.password){
+             alert('Success login with ADMIN Account')
+             window.location.href = "../DashBoardAdmin/dashboard.html"
+          }
+          else{
+            alert('You may have entered the wrong password 🥲')
+          }
+      }else if(isProvider){
+
+        if(password === getDataProvider.password){
+             alert('Success login with Provider Account')
+             window.location.href = "../DashBoardProvider/dashboardProvider.html"
+          }
+          else{
+            alert('You may have entered the wrong password 🥲') 
+          }
+      }
+      
+
+
+
+}
+
+isAdminAccount();
+isProviderAccount();
 
 
