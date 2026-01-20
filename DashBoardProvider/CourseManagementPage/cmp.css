@@ -458,6 +458,7 @@
         .TypeingInputInfo__Input,
         .TypeingInputInfo__Media{
             padding: 20px;
+
            
             
         }
@@ -470,6 +471,8 @@
             background-size: cover;
 
             border: 2px solid #333;
+
+            border-radius: 10px;
 
             
             display: grid;
@@ -552,7 +555,9 @@
         background-color: #b6b6b687;
         display: grid;
         padding: 12px;
-        grid-template-rows: 1fr 3fr;
+        grid-template-rows: 1fr 1fr;
+
+        border-radius: 10px;
 
         border: 2px solid black;
 
@@ -573,18 +578,12 @@
             .RemoteThreeAction__btn-release,
             .RemoteThreeAction__btn-delete{
 
-                padding: 12px;
-
-                background-color: #15803d;
-
-                border-radius: 10px;
+                
 
 
                 button{
 
-                    background: none;
-
-                    border: none;
+                    
 
                     outline: none;
 
@@ -592,7 +591,21 @@
 
                     color: #dcfce7;
 
+                    padding: 12px;
+
+                    background-color: #15803d;
+
+                    border-radius: 10px;
+
+                    border: none;
+
                    
+                }
+
+                button:active{
+                    background-color: #0468ff;
+
+                    color: orange;
                 }
 
                 
@@ -601,9 +614,7 @@
         /* 70% - 2 */
         .SettingArea__Category{
 
-            display: grid;
-
-            grid-template-rows: 1fr 1fr;
+            
 
 
             .Category-detail{
@@ -628,18 +639,39 @@
             .Category_prices{
 
                 display: flex;
+
+                flex-direction: column;
                 
                 flex-wrap: wrap;
 
-                gap : 10px;
+                gap : 20px;
+
+                .Category_prices__price-inputs{
+
+                    display: flex;
+
+                    flex-direction: column;
+                
+                    flex-wrap: wrap;
+
+                    gap : 20px;
+                }
 
                 .Category_prices__price-inputs > input{
+
+                    
                     padding: 5px;
+
+                    width: 100%;
+
+                    border-radius: 5px;
 
 
                 }
                 
             }
+
+
         }
     }
        
@@ -660,16 +692,27 @@
 
 
 
+
+
         .Media__avatarThumbnail{
+
+            background-image: url(./CourseCreate&EditPage/img/abstract-background.jpg);
+
+            background-size: cover;
 
             width: 100%;
             background-color: #ffffff;
             display: grid;
 
-            grid-template-rows: 2fr 1fr;
+            grid-template-rows: 4fr 1fr;
+
+
+            grid-gap: 12px;
 
             border: 2px solid black;
             padding: 12px;
+
+            border-radius: 10px;
 
             
 
@@ -700,16 +743,35 @@
                 justify-content: space-between;
 
                 button{
-                    font-size: 1.4rem;
+                    font-size: 1.2rem;
 
-                    padding: 20px;
+                    padding: 12px;
 
                     border-radius: 8px;
+
+                    cursor: pointer;
+
+                    border: none;
+
+                    background-color: #15803d;
+
+                    color: #ffffff;
+                }
+
+                button:active{
+                    background-color: #0468ff;
+                    color: orange;
                 }
             }
         }
 
         .Media__videoIntroduceCourse{
+
+
+                background-image: url(./CourseCreate&EditPage/img/abstract-background.jpg);
+
+                background-size: cover;
+
                 display: grid;
                 grid-template-rows: 4fr 1fr;
 
@@ -717,7 +779,13 @@
 
                 padding: 12px;
 
-                grid-gap: 10px;
+                grid-gap: 12px;
+
+                border-radius: 10px;
+
+                align-items: center;
+
+                
 
                 
                 .videoIntroduceCourse__uploadvideo{
@@ -726,11 +794,24 @@
                     align-items: center;
 
                     button{
-                    font-size: 1.4rem;
+                    font-size: 1.2rem;
 
-                    padding: 20px;
+                    padding: 12px;
 
                     border-radius: 8px;
+
+                    border: none;
+
+                    background-color: #15803d;
+
+                    color: #ffffff;
+
+                    cursor: pointer;
+                    }
+
+                    button:active{
+                        background-color: #0468ff;
+                        color: orange;
                     }
                 }
         }

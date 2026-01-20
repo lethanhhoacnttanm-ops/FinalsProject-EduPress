@@ -116,11 +116,81 @@ function transToPage(id){
 }
 
 
-// LCEP 
+// Upload file cho PAGE LCEP - Attachment Document
 
-const showCaseLMP = document.getElementById('hidden-basicinfo');
+function handleFileSelect(input) {
+    const previewBlock = document.getElementById('file-preview-block');
+    const fileNameSpan = document.getElementById('file-name');
+    
+    if (input.files && input.files[0]) {
+        const file = input.files[0];
+        
+      
+        if (file.type !== "application/pdf") {
+            alert("Vui lòng chỉ chọn định dạng file PDF!");
+            input.value = "";
+            return;
+        }
 
-let showListLmp = '';
+        
+        fileNameSpan.textContent = file.name;
+        previewBlock.style.display = 'block';
+    }
+}
+
+function removeFile() {
+    const input = document.getElementById('file-upload');
+    const previewBlock = document.getElementById('file-preview-block');
+    
+    input.value = ""; 
+    previewBlock.style.display = 'none'; 
+}
+
+
+
+// Upload video cho PAGE LCEP - Area Media
+function previewVideo(input) {
+    const file = input.files[0];
+    const videoPlayer = document.getElementById('video-player');
+    const videoSource = document.getElementById('video-source');
+    const videoInfo = document.getElementById('video-info');
+    const fileNameDisplay = document.getElementById('video-file-name');
+
+    if (file) {
+        // 1. Kiểm tra định dạng có phải video không
+        if (!file.type.startsWith('video/')) {
+            alert("Vui lòng chọn một định dạng video hợp lệ!");
+            return;
+        }
+
+        // 2. Hiển thị tên file
+        fileNameDisplay.textContent = file.name;
+        videoInfo.style.display = 'flex';
+
+        // 3. Tạo URL tạm thời để xem trước video
+        const fileURL = URL.createObjectURL(file);
+        videoSource.src = fileURL;
+        
+        // 4. Load lại và phát video
+        videoPlayer.load(); 
+        videoPlayer.style.display = 'block';
+    }
+}
+
+function resetVideo() {
+    const input = document.getElementById('video-upload');
+    const videoPlayer = document.getElementById('video-player');
+    const videoSource = document.getElementById('video-source');
+    const videoInfo = document.getElementById('video-info');
+
+    input.value = ""; // Reset input
+    videoSource.src = ""; // Xóa nguồn video
+    videoPlayer.load();
+    videoInfo.style.display = 'none';
+}
+
+
+
 
 
 
