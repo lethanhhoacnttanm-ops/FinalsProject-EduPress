@@ -26,47 +26,59 @@ function renderListCourse() {
     const dataToRender = JSON.parse(localStorage.getItem('myCourses')) || [];
 
     const html = dataToRender.map((item, index) => {
-        const name = item.thumbnails?.nameCourse || item.title || "Chưa đặt tên";
-        const price = item.Cashier || item.basePrice || 0;
-        const thumb = item.thumbnails?.picture || 'https://via.placeholder.com/160x100?text=Edupress';
-        const date = item.CreateDate || item.date || '---';
+        // Chuẩn bị dữ liệu
+        const thumb = item.thumbnails?.picture || 'https://via.placeholder.com/120x70?text=No+Image';
+        const name = item.title || "Chưa đặt tên";
+        const price = item.basePrice || 0;
+        const quantity = item.quantityStu || 0;
         const status = item.status || 'pending';
- 
-        
+        const createDate = item.createDate || item.date || '---'; // Lấy ngày tạo từ đối tượng
+        const lessonCount = item.lessons ? item.lessons.length : 0;
+
         return `
         <div class="table-list__body">${index + 1}</div>
 
-        <div class="table-list__body" style="display: flex; align-items: center; gap: 10px;">
-            <img src="${thumb}" alt="Thumb" style="width: 120px; height: 70px; object-fit: cover; border-radius: 4px;">
-            <p style="font-weight: 500; text-align: left;">${name}</p>
-        </div>        
+        <div class="table-list__body">
+            <img src="${thumb}" alt="Thumb" style="width: 100px; height: 60px; object-fit: cover; border-radius: 4px;">
+        </div>
+
+        <div class="table-list__body" style="font-weight: 500; text-align: left;">${name}</div>
 
         <div class="table-list__body" style="font-weight: bold; color: #2563EB;">
             ${Number(price).toLocaleString()}đ
         </div>
 
-        <div class="table-list__body">${item.quantityStu || 0}</div>
+        <div class="table-list__body">${quantity}</div>
+
         <div class="table-list__body">
-            <span class="status-badge status-${status === 'Đang chờ duyệt' ? 'pending' : status}">
-                    ${status === 'pending' || status === 'Đang chờ duyệt' ? 'Chờ duyệt' : 
-                      status === 'active' ? 'Đã xuất bản' : 
-                      status === 'rejected' ? 'Bị từ chối' : 'Bản nháp'}
+            <span class="status-badge status-${status}">
+                ${status === 'pending' ? 'Pending approval' : 
+                //   status === 'lesson_pending' ? 'Bài mới chờ duyệt' :
+                  status === 'active' ? 'Published' : 
+                  status === 'rejected' ? 'Rejected' : 'Bản nháp'}
             </span>
         </div>
 
-        <div class="table-list__body">${item.CreateDate || item.date}</div>
+        <div class="table-list__body">${createDate}</div>
 
         <div class="table-list__body">
-                <button class="btn-action edit" onclick="editCourse(${item.id})" title="Sửa">
+            <button class="btn-action lesson" 
+                    onclick="window.location.href='../LessonManagementPage/lcep.html?id=${item.id}'" 
+                    title="Quản lý bài giảng"
+                    style="background: #10B981; color: white; padding: 6px 12px; border-radius: 4px; border: none; cursor: pointer;">
+                <i class="fa-solid fa-book"></i> Lesson (${lessonCount})
+            </button>
+        </div>
+
+        <div class="table-list__body">
+                <button class="btn-action edit" onclick="editCourse('${item.id}')" title="Edit" style="margin-right: 5px;">
                     <i class="fa-solid fa-pen"></i>
                 </button>
-                <button class="btn-action delete" onclick="deleteCourse(${item.id})" title="Xóa">
+                <button class="btn-action delete" onclick="deleteCourse('${item.id}')" title="Delete">
                     <i class="fa-solid fa-trash"></i>
                 </button>
         </div>
-
         `;
-       
     }).join('');
 
     tableBody.innerHTML = html;
@@ -85,6 +97,11 @@ function deleteCourse(id) {
         // Vẽ lại bảng ngay lập tức
         renderListCourse();
     }
+}
+
+function editCourse(id) {
+    // Chuyển hướng và đính kèm tham số id=...
+    window.location.href = `./CourseCreate&EditPage/ccep.html?id=${id}`;
 }
 
 function addCourse(){
@@ -136,6 +153,8 @@ function deletePic() {
     pictureShow.style.display = 'none';
 }
 
+
+
 // Upload video in CCEP - INTRODUCE VIDEO COURSE 🔴
 
 function previewVideo(input) {
@@ -186,60 +205,104 @@ function goToPageProvider(address) {
 
 // 🎉 This place is addind all infomation to send request to admin 
 
-document.getElementById('btn-submit-course').addEventListener('click', function() {
-    // 1. Thu thập dữ liệu từ các thẻ input
-    // Lưu ý: Đối với File (Ảnh/Video), ta nên lưu tên file hoặc chuỗi Base64. 
-    // Ở đây ta lưu thông tin cơ bản để Admin nhận diện.
-    
-    const idCourse = document.getElementById('ID-COURSE-CCEP').value;
-    const nameCourse = document.getElementById('NAME-COURSE-CCEP').value;
-    const shortDes = document.getElementById('SHORT-DES-CCEP').value;
-    const detailDes = document.getElementById('DETAIL-DES-CCEP').value;
-    const courseTarget = document.getElementById('seleted-category-target').value;
-    const price = document.getElementById('Category_prices-root').value;
+document.addEventListener('DOMContentLoaded', function() {
+    // --- PHẦN 1: ĐỔ DỮ LIỆU CŨ VÀO FORM (NẾU LÀ EDIT) ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const editId = urlParams.get('id');
 
-    const picturePreview = document.getElementById('pictureshow');
-    
-    // Lấy file thực tế thay vì chỉ lấy .value (đường dẫn giả)
-    const pictureFile = document.getElementById('choosepic').files[0];
-    const videoFile = document.getElementById('video-upload').files[0];
+    if (editId) {
+        const courses = JSON.parse(localStorage.getItem('myCourses')) || [];
+        const course = courses.find(c => String(c.id) === String(editId));
 
-    // 2. Kiểm tra dữ liệu (Validation) cơ bản
-    if (!nameCourse || !price || !pictureFile) {
-        alert("Vui lòng điền tên khóa học, giá và chọn ảnh đại diện!");
-        return;
+        if (course) {
+            // Điền dữ liệu vào các ô input
+            document.getElementById('NAME-CCEP').value = course.name || "";
+            document.getElementById('ID-COURSE-CCEP').value = course.id || "";
+            document.getElementById('NAME-COURSE-CCEP').value = course.title || "";
+            document.getElementById('SHORT-DES-CCEP').value = course.shortDescription || "";
+            document.getElementById('DETAIL-DES-CCEP').value = course.description || "";
+            document.getElementById('seleted-category-target').value = course.category || "";
+            document.getElementById('Category_prices-root').value = course.basePrice || "";
+            
+            // Hiển thị ảnh bìa cũ
+            if (course.thumbnails && course.thumbnails.picture) {
+                const picturePreview = document.getElementById('pictureshow');
+                picturePreview.src = course.thumbnails.picture;
+                picturePreview.dataset.base64 = course.thumbnails.picture;
+            }
+            
+            // Đổi tiêu đề nút bấm cho chuyên nghiệp
+            document.getElementById('btn-submit-course').innerText = "Update Course";
+        }
     }
 
-    // 3. Tạo đối tượng khóa học mới
-    const newCourse = {
-        id: idCourse || Date.now(), // Nếu không có ID thì tự tạo bằng timestamp
-        title: nameCourse,
-        shortDescription: shortDes,
-        description: detailDes,
-        category: courseTarget,
-        basePrice: price,
-        thumbnails: {
-            // Lấy chuỗi Base64 đã lưu, nếu không có thì để trống
-            picture: picturePreview.dataset.base64 || "", 
-            video: document.getElementById('video-upload').files[0]?.name || ""
-        },
-        status: 'pending', // Trạng thái mặc định khi gửi cho Admin
-        createDate: new Date().toLocaleDateString('vi-VN'),
-        quantityStu: 0
-    };
+    // --- PHẦN 2: XỬ LÝ SỰ KIỆN LƯU (SAVE/UPDATE) ---
+    const btnSubmit = document.getElementById('btn-submit-course');
+    if (btnSubmit) {
+        btnSubmit.addEventListener('click', function() {
+            const name = document.getElementById('NAME-CCEP').value;
+            const idCourse = document.getElementById('ID-COURSE-CCEP').value;
+            const nameCourse = document.getElementById('NAME-COURSE-CCEP').value;
+            const shortDes = document.getElementById('SHORT-DES-CCEP').value;
+            const detailDes = document.getElementById('DETAIL-DES-CCEP').value;
+            const courseTarget = document.getElementById('seleted-category-target').value;
+            const price = document.getElementById('Category_prices-root').value;
+            const picturePreview = document.getElementById('pictureshow');
 
-    // 4. Lưu vào localStorage
-    // Lấy danh sách cũ ra trước (nếu có), sau đó thêm cái mới vào
-    let existingCourses = JSON.parse(localStorage.getItem('myCourses')) || [];
-    existingCourses.push(newCourse);
-    
-    localStorage.setItem('myCourses', JSON.stringify(existingCourses));
+            // Kiểm tra dữ liệu (Validation)
+            if (!nameCourse || !price || (!editId && !document.getElementById('choosepic').files[0]) || !name) {
+                alert("Vui lòng điền đầy đủ thông tin!");
+                return;
+            }
 
-    // 5. Hiển thị thông báo và chuyển hướng hoặc reset
-    alert("Gửi yêu cầu thành công! Khóa học đang chờ Admin phê duyệt.");
-    
-    // Tùy chọn: Chuyển hướng về trang danh sách
-    // window.location.href = "list-course.html";
+            let existingCourses = JSON.parse(localStorage.getItem('myCourses')) || [];
+
+            if (editId) {
+                // CHẾ ĐỘ CHỈNH SỬA
+                const index = existingCourses.findIndex(c => String(c.id) === String(editId));
+                if (index !== -1) {
+                    existingCourses[index] = {
+                        ...existingCourses[index],
+                        name: name,
+                        title: nameCourse,
+                        shortDescription: shortDes,
+                        description: detailDes,
+                        category: courseTarget,
+                        basePrice: price,
+                        thumbnails: {
+                            picture: picturePreview.dataset.base64 || existingCourses[index].thumbnails.picture,
+                            video: document.getElementById('video-upload').files[0]?.name || existingCourses[index].thumbnails.video
+                        },
+                        status: 'pending' // Gửi lại cho Admin duyệt bản mới
+                    };
+                    alert("Cập nhật thành công!");
+                }
+            } else {
+                // CHẾ ĐỘ TẠO MỚI
+                const newCourse = {
+                    name: name,
+                    id: idCourse || Date.now(), 
+                    title: nameCourse,
+                    shortDescription: shortDes,
+                    description: detailDes,
+                    category: courseTarget,
+                    basePrice: price,
+                    thumbnails: {
+                        picture: picturePreview.dataset.base64 || "", 
+                        video: document.getElementById('video-upload').files[0]?.name || ""
+                    },
+                    status: 'pending', 
+                    createDate: new Date().toLocaleDateString('vi-VN'),
+                    quantityStu: 0
+                };
+                existingCourses.push(newCourse);
+                alert("Gửi yêu cầu tạo mới thành công!");
+            }
+
+            localStorage.setItem('myCourses', JSON.stringify(existingCourses));
+            window.location.href = "../cmp.html"// Chuyển về trang danh sách
+        });
+    }
 });
 
 
