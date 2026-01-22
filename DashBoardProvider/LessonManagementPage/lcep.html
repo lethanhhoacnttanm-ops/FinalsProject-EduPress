@@ -48,12 +48,12 @@
 
                     <div class="bassinfo__title-lesson">
                         <label for="titleLesson">Lecture title: </label>
-                        <input type="text" name="titleLesson">
+                        <input type="text" name="titleLesson" id="lecturetitle">
                     </div>
 
                     <div class="bassinfo__description-lesson">
                         <label for="descriptLesson">Lecture description: </label>
-                        <input type="text" name="descriptLesson">
+                        <input type="text" name="descriptLesson" id="description">
                     </div>
                 </div>
                 <!-- 2.2.2 Action Footer -->
@@ -78,14 +78,15 @@
                         <label for="file-upload" class="custom-file-upload">
                             <i class="fas fa-cloud-upload-alt"></i> Upload lecture file
                         </label>
-                        <input type="file" id="file-upload" accept=".pdf" hidden>
+                        
+                        <input type="file" id="file-upload" accept=".pdf" hidden onchange="handleFileSelect(this)">
 
                         <div id="file-preview-block" class="file-block" style="display: none;">
                             <i class="fas fa-file-pdf"></i>
                             <span id="file-name">No file chosen!!!</span>
-                            <button type="button" onclick="removeFile()" class="remove-btn">&times;</button>
+                            <button type="button" onclick="removeFile()" class="remove-btn" title="Xóa file">&times;</button>
                         </div>
-                    </div>
+                      </div>
                 </div>
             </div>
 
@@ -97,19 +98,26 @@
                 </div>
 
                 <div class="areamedia__playvideo">
-                <h3>Video Player</h3>
-                <video id="video-player" controls>
-                    <source src="" type="video/mp4">
-                </video>
+                    <h3>Video Player</h3>
+                    <div class="video-container">
+                        <video id="video-player" controls>
+                            <source id="video-source" src="" type="video/mp4">
+                            Trình duyệt của bạn không hỗ trợ thẻ video.
+                        </video>
+                    </div>
                 </div>
 
                 <div class="areamedia__uploadvideo">
-                    <h3>Download Video</h3>
-                    <label for="video-upload" class="custom-file-upload">
-                        Select a video file from your computer.
+                    <h3>Upload Video</h3>
+                    <label for="video-upload" class="custom-file-uploadvideo">
+                        <i class="fas fa-video"></i> Select a video file
                     </label>
-                    <input type="file" id="video-upload"  accept="video/*">
-                    <p id="file-name">No files were selected.</p>
+                    <input type="file" id="video-upload" accept="video/mp4,video/x-m4v,video/*" hidden onchange="previewVideo(this)">
+                    
+                    <div id="video-info" class="file-info-block" style="display: none;">
+                        <span id="video-file-name">No files were selected.</span>
+                        <button type="button" onclick="resetVideo()" class="remove-btn">&times;</button>
+                    </div>
                 </div>
             </div>
         
