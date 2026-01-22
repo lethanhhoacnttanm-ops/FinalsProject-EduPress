@@ -92,6 +92,79 @@ function addCourse(){
 }
 
 
+
+// Upload picture in CCEP - AVATAR COURSE 🔴
+
+function previewPicture(input){
+    const file = input.files[0]; 
+    const pictureShow = document.getElementById('pictureshow');
+    const overlay = document.querySelector('.uploadoverlay');
+
+    if (file) {
+        // 1. Kiểm tra định dạng có phải pictuer không
+        if (!file.type.startsWith('image/')) {
+            alert("Vui lòng chọn một định dạng video hợp lệ!");
+            return;
+        }
+
+        // 3. Tạo URL tạm thời để xem trước pic
+        const fileURL = URL.createObjectURL(file);
+
+        pictureShow.src = fileURL; 
+        pictureShow.style.display = 'block';
+
+        pictureShow.onload = function() {
+            pictureShow.style.display = 'block'; // Hiện ảnh lên
+            if(overlay) overlay.style.opacity = '0'; // Ẩn overlay đi để lộ ảnh
+        }
+    }
+}
+
+function deletePic() {
+    const input = document.getElementById('choosepic');
+    const pictureShow = document.getElementById('pictureshow');
+
+    input.value = ""; 
+    pictureShow.src = ""; 
+    pictureShow.style.display = 'none';
+}
+
+// Upload video in CCEP - INTRODUCE VIDEO COURSE 🔴
+
+function previewVideo(input) {
+    const file = input.files[0];
+    const videoShow = document.getElementById('video-show');
+    const videoSource = document.getElementById('video-source');
+
+    if (file) {
+        // 1. Kiểm tra định dạng có phải video không
+        if (!file.type.startsWith('video/')) {
+            alert("Vui lòng chọn một định dạng video hợp lệ!");
+            return;
+        }
+
+        // 2. Tạo URL tạm thời để xem trước video
+        const fileURL = URL.createObjectURL(file);
+        videoSource.src = fileURL;
+        
+        // 3. Load lại và phát video
+        videoShow.load(); 
+        videoShow.style.display = 'block';
+    }
+}
+
+function resetVideo() {
+    const input = document.getElementById('video-upload');
+    const videoShow = document.getElementById('video-show');
+    const videoSource = document.getElementById('video-source');
+
+    input.value = ""; // Reset input
+    videoSource.src = ""; // Xóa nguồn video
+    videoShow.load();
+}
+
+
+
 // Di chuyen den trang mong muon Provider 
 
 

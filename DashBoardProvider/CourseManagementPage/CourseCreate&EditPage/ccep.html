@@ -26,10 +26,6 @@
                 <button id="btn-submit-course">Send Request</button>
             </div>
 
-            <div class="ccep-interact__sendRequest">
-                <button>Save</button>
-            </div>
-
             <div class="ccep-interact__previous-page">
                 <a href="../cmp.html"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
             </div>
@@ -115,29 +111,41 @@
                 <div class="Media__avatarThumbnail">
 
                     <div class="avatarThumbnail__showpic">
-                        <i class="fa-solid fa-camera"></i>
+                        
+                        <div class="uploadoverlay">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <img id="pictureshow" src="" alt="Preview">
                     </div>
 
 
                     <div class="avatarThumbnail__uploadpic">
-                        <button>Choose</button>
-                        <button>Delete Pic</button>
+
+                        <label for="choosepic" id="pic-upload">Choose</label>
+                        <input type="file" id="choosepic" accept="img/jpg, img/png" hidden onchange="previewPicture(this)">
+
+                        <button type="button" onclick="deletePic()">Delete Pic</button>
                     </div>
 
                 </div>
 
                 <!-- 50% INTRODUCE VIDEO COURSE-->
                 <div class="Media__videoIntroduceCourse">
-                    <iframe 
-                        width="100%;"
-                        src="https://www.youtube.com/embed/k9TqAJSU79k" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
+
+                    <div class="videoIntroduceCourse__showvideo">
+                        <video id="video-show" controls>
+                            <source id="video-source" src="" type="video/mp4">
+                            This browse not allow video
+                        </video>
+                    </div>
+
                     <div class="videoIntroduceCourse__uploadvideo">
-                        <button>Upload Video</button>
+                        <label for="video-upload" class="custom-file-uploadvideo">
+                             Select a video
+                        </label>
+                        <input type="file" id="video-upload" accept="video/mp4,video/x-m4v,video/*" hidden onchange="previewVideo(this)">
+                         
+                        <button type="button" onclick="resetVideo()">Delete Video</button>
                     </div>
                 </div>
         </div>
