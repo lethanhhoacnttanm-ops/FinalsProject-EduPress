@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Create/Edit Page</title>
+    <link rel="stylesheet" href="../cmp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <!-- 1.Main container CCEP -->
+    <div class="header-container-CCEP">
+        <!-- logo -->
+        <div class="header-container-CCEP__logo">
+            <img src="./img/Isolation_Mode.png" alt="">
+            <h3>Edupress</h3>
+        </div>
+        <!-- title -->
+        <div class="header-container-CCEP__title-page">
+            <h1>Course Create & Edit</h1>
+        </div>
+        <!-- previous page -->
+        <div class="header-container-CCEP__previous-page">
+            <div class="ccep-interact__save">
+                <button id="btn-submit-course">Gửi duyệt</button>
+            </div>
+
+            <div class="ccep-interact__sendRequest">
+                <button>Lưu nháp</button>
+            </div>
+
+            <div class="ccep-interact__previous-page">
+                <a href="../cmp.html"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Main section container CCEP -->
+    <div class="section-container-CCEP">
+        <!-- 2.1 Khu nhap lieu 70%  -->
+        <div class="section-container-CCEP__TypeingInputInfo">
+            <!--  -->
+            <div class="TypeingInputInfo__Input">
+
+                <div class="Input__Idcourse">
+                    <label for="idcourse">ID Course: </label>
+                    <input type="text" name="idcourse">
+                </div>
+
+                 <div class="Input__NameCourse">
+                    <label for="namecourse">Tên khóa học: </label>
+                    <input type="text" name="namecourse" id="">
+                 </div>
+
+                 <div class="Input__ShortDescription">
+                    <label for="shortdes">Mô tả ngắn: </label>
+                    <input type="text" name="shortdes" id="">
+                 </div>
+
+                 <div class="Input__DetailDescription">
+                    <label for="destailDes">Mô tả chi tiết: </label>
+                    <textarea name="destailDes" id="" rows="10"></textarea>
+                 </div>
+
+                 <div class="Input__CourseTarget">
+                    <label>Mục tiêu khóa học: </label>
+                    <select id="" class="Input__CourseTarget-optional">
+                        <option value="">-- Chọn --</option>
+                        <option value="intern">Trở thành Intern/Fresher</option>
+                        <option value="developer">Trở thành Developer</option>
+                        <option value="frontend">Trở thành Senior Frontend</option>
+                        <option value="backend">Trở thành Senior Backend</option>
+                    </select>
+                 </div>
+            </div>
+
+            <!--  Khu thiet lap 30% -->
+            <div class="CCEP__SettingArea">
+
+                <!-- 30% -->
+                <div class="SettingArea__RemoteThreeAction">
+                    <div class="RemoteThreeAction__btn-save">
+                        <button>SAVE</button>
+                    </div>
+                    <div class="RemoteThreeAction__btn-release">
+                        <button>RELEASE</button>
+                    </div>
+                    <div class="RemoteThreeAction__btn-delete">
+                        <button>DELETE</button>
+                    </div>
+                </div>
+                
+                <!-- 70% -->
+                <div class="SettingArea__Category">
+                    <div class="Category-detail">
+                        <label>Target Course: </label>
+                        <select id="seleted-category-target" class="Category-detail__Select-major">
+                            <option value="">-- List Major --</option>
+                            <option value="it">Infomation Technology</option>
+                            <option value="business">Business administration</option>
+                            <option value="language">English language</option>
+                            <option value="design">Design</option>
+                        </select>
+                    </div>
+
+                    <div class="Category_prices">
+                        <label class="Category_prices__info-label"><i class="fa-solid fa-tags"></i> Course price (VNĐ)</label>
+                        <div class="Category_prices__price-inputs">
+                            <input type="number" id="Category_prices-root" placeholder="Original price (vd: 500000)">
+                            <input type="number" id="Category_prices-reduce" placeholder="Price reduction (nếu có)">
+                        </div>
+                        <small class="Category_prices__info-note">* Leave the discounted price field blank if there are no promotions.</small>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+
+        <!-- 2.2 khu video media  -->
+        <div class="section-container-TypeingInputInfo__Media">
+                <!-- 50% - AVATAR COURSE-->
+                <div class="Media__avatarThumbnail">
+
+                <div class="avatarThumbnail__showpic">
+                    <i class="fa-solid fa-camera"></i>
+                </div>
+
+
+                <div class="avatarThumbnail__uploadpic">
+                    <button>Choose</button>
+                    <button>Delete Pic</button>
+                </div>
+
+                </div>
+
+                <!-- 50% INTRODUCE VIDEO COURSE-->
+                <div class="Media__videoIntroduceCourse">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/k9TqAJSU79k" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+                <div class="videoIntroduceCourse__uploadvideo">
+                    <button>Upload Video</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="../cmp.js"></script>
+</body>
+</html>

@@ -93,3 +93,42 @@ document.getElementById('btn-submit-course').addEventListener('click', function(
     
     window.location.href = "../CourseManagementPage/cmp.html"; 
 });
+
+
+
+// This is the button trans to the basic info & the lesson all
+
+function transToPage(id){
+
+    let allTabsBasic = document.querySelectorAll('.showpage')
+    let getid = document.getElementById(id)
+
+    let isPageAlreadyOpen = (getid.style.display === 'block')
+
+    allTabsBasic.forEach(p => {
+        p.style.display = "none";
+    })
+
+    if(!isPageAlreadyOpen){
+        getid.style.display = "block";
+    }
+
+}
+
+
+// LCEP 
+
+const showCaseLMP = document.getElementById('hidden-basicinfo');
+
+let showListLmp = '';
+
+
+
+
+
+function goToPage(address){
+    window.location.href = address;
+}
+
+
+
