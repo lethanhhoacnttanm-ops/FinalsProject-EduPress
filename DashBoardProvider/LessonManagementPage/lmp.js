@@ -183,8 +183,8 @@ function resetVideo() {
     const videoSource = document.getElementById('video-source');
     const videoInfo = document.getElementById('video-info');
 
-    input.value = ""; // Reset input
-    videoSource.src = ""; // Xóa nguồn video
+    input.value = ""; 
+    videoSource.src = ""; 
     videoPlayer.load();
     videoInfo.style.display = 'none';
 }
