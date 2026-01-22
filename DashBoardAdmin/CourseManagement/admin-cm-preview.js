@@ -45,6 +45,44 @@ function updateStatus(id, newStatus) {
     renderAdminReview(); 
 }
 
+function viewCourseDetail(id) {
+    const courses = JSON.parse(localStorage.getItem('myCourses')) || [];
+    const course = courses.find(c => String(c.id) === String(id));
+
+    if (course) {
+        alert(`
+            CHI TIẾT KHÓA HỌC:
+            - Tên: ${course.title}
+            - Giá: ${Number(course.basePrice).toLocaleString()}đ
+            - Ngày tạo: ${course.createDate}
+            - Mô tả: ${course.shortDescription}
+        `);
+    }
+}
+
+
+function editinfo(id) {
+    
+    window.location.href = `../../DashBoardProvider/CourseManagementPage/CourseCreate&EditPage/ccep.html?id=${id}`;
+}
+
+
+function toggleCourseStatus(id) {
+    let courses = JSON.parse(localStorage.getItem('myCourses')) || [];
+    const index = courses.findIndex(c => String(c.id) === String(id));
+
+    if (index !== -1) {
+        const currentStatus = courses[index].status;
+        courses[index].status = (currentStatus === 'active') ? 'disabled' : 'active';
+
+        localStorage.setItem('myCourses', JSON.stringify(courses));
+        
+        const statusText = courses[index].status === 'active' ? "hiển thị" : "ẩn";
+        alert(`Đã ${statusText} khóa học thành công!`);
+        
+        renderCourses(); 
+    }
+}
 
 
 
