@@ -141,3 +141,184 @@ body, html{
     }
 
 }
+
+
+.main-container-pending-bns{
+    padding: 20px;
+    background-color: rgba(188, 209, 221, 0.568);
+    box-shadow: 0px 0px 10px 7px rgb(54, 127, 169);
+    
+
+    border-radius: 8px;
+
+    width: auto;
+
+    height: auto;
+    
+    margin: 0 30px;
+
+    .pending-backPreviousPage{
+        margin: 15px 0px;
+
+        a{
+            padding: 6px 12px ;
+
+            background-color: #333;
+
+            color: #ffffff;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            
+
+            transition: box-shadow 0.3s ease;
+        }
+
+       a:hover{
+            box-shadow: 0px 0px 5px 10px #ffffffff;
+            
+        }
+
+        a:active{
+            font-size: 0.8rem;
+            background-color: #0468ff;
+
+            border: none;
+        }
+    }
+
+
+    .pending-title-bns{
+        text-align: center;
+        padding: 24px 36px;
+        
+        background-color: aliceblue;
+
+        background-image: url(../CourseManagement/img/pic2.png);
+
+        background-repeat:round;
+
+        background-size: cover;
+
+        box-shadow: 0px 0px 10px 7px rgb(54, 127, 169);
+
+        border-radius: 10px;
+
+        h1{
+            filter: drop-shadow(5px 5px 10px orange);
+            font-size: 2.7rem;
+
+            transition: filter 0.5s ease;
+        }
+
+        h1:hover{
+            filter: drop-shadow(0px 0px 40px rgb(235, 235, 235));
+        }
+
+        
+        
+    }
+
+
+    .pending-info-details-bns{
+        display: grid;
+
+        grid-template-columns: repeat(8,1fr);
+        
+        /* border: 2px solid black; */
+
+        text-align: center;
+
+        margin: 20px auto;
+
+        .info-bns,
+        .info-bns,
+        .info-bns{
+
+            border: 1px solid #333;
+
+            font-size: 1.2rem;
+
+            padding: 30px 0px;
+
+            background-color: #ece9bb;
+            
+             
+        } 
+
+          .table-body-render-courses-bns{
+                gap: 10px;
+
+                border: 2px solid black;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                flex-wrap: wrap;
+
+                font-size: 1.2rem;
+
+                padding: 20px;
+
+                text-align: center;
+
+                    
+
+
+                        .btn-approve, .btn-reject {
+                            padding: 8px 16px;
+                            border: none;
+                            border-radius: 6px;
+                            font-size: 14px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 5px;
+                        }
+    
+                        .btn-approve {
+                            background-color: #10b981; 
+                            color: white;
+                            box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+                        }
+    
+                        .btn-approve:hover {
+                            background-color: #059669;
+                            transform: translateY(-1px);
+                            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+                        }
+    
+                        .btn-reject {
+                            background-color: #ef4444; 
+                            color: white;
+                            box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+                        }
+    
+                        .btn-reject:hover {
+                            background-color: #dc2626;
+                            transform: translateY(-1px);
+                            box-shadow: 0 4px 6px rgba(239, 68, 68, 0.3);
+                        }
+    
+                        
+                        .btn-approve:active, .btn-reject:active {
+                            transform: translateY(0);
+                        }
+                    
+
+
+                
+            }
+        
+
+        
+    }
+
+
+}

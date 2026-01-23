@@ -19,27 +19,35 @@ const providers = [
         status: "pending" }
 ];
 
-function renderProviders() {
-    const tableBody = document.getElementById('table-body-render');
+function renderProvider() {
+    const tableBodycm = document.getElementById('table-body-render');
     
-    if (!tableBody) return; 
+    if (!tableBodycm) return;
+    const courses = JSON.parse(localStorage.getItem('myListProvider')) || providers;
 
-    const html = providers.map((item, index) => `
-        <div class="table-list__body">${index + 1}</div>
-        <div class="table-list__body"><strong>${item.name}</strong></div>
-        <div class="table-list__body">${item.contact}</div>
-        <div class="table-list__body">${item.date}</div>
-        <div class="table-list__body">${item.field}</div>
-        <div class="table-list__body">
-            <span class="badge badge--${item.status}">${item.status === 'active' ? 'Hoạt động' : 'Chờ duyệt'}</span>
-        </div>
-        <div class="table-list__body">
-            <button onclick="editProvider(${item.id})">📝</button>
-            <button onclick="toggleProvider(${item.id})">🔒</button>
-        </div>
-    `).join('');
+    const htmlcm = courses.map((item, index) => {
+        
+        
+                    
+        return `
+            <div class="table-list__body-cpm">${index + 1}</div>
+            <div class="table-list__body-cpm">${item.id}</div>
+            <div class="table-list__body-cpm">${item.name}</div>
+            <div class="table-list__body-cpm">${item.email}</div> 
+            <div class="table-list__body-cpm">${item.timestamp}</div> 
+            <div class="table-list__body-cpm">
+                <span class="badge badge--${item.status}">
+                    ${item.status === 'active' ? 'Approved' : 'Pending approval'}
+                </span>
+            </div>
+            <div class="table-list__body-cpm">
+                <button title="detail" onclick="viewCourseDetail('${item.id}')">👁️</button>
+                <button title="edit" onclick="editinfo('${item.id}')">📝</button>
+                <button title="disable" onclick="toggleCourseStatus('${item.id}')">🚫</button>
+            </div>
+    `}).join('');
 
-    tableBody.innerHTML = html;
+    tableBodycm.innerHTML = htmlcm;
 }
 
-renderProviders()
+renderProvider()

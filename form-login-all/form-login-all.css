@@ -9,7 +9,8 @@
 
 /*1. Form login admin */
 
-.main-container-admin{
+.main-container-admin,
+.main-container-provider{
     
    
     height: 100vh;
@@ -23,7 +24,8 @@
 
     background-size: cover;
 
-    .admin__form-login{
+    .admin__form-login,
+    .provider__form-registration{
     width: 500px;
     height: auto ;
     background-color: rgba(255, 252, 252, 0.8); 
@@ -37,9 +39,11 @@
 
     
     /*  <!-- 1. Title --> */
-    .login-title{
+    .login-title,
+    .regist-title{
 
-        .login-title__logo{
+        .login-title__logo,
+        .regist-title__logo{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -52,7 +56,11 @@
     }
 
     /* <!-- 2. Email --> */
-    .login-email{
+    .login-email,
+    .regist-username,
+    .regist-email,
+    .regist-password,
+    .regist-confirm-password{
         display: flex;
         justify-content: space-between;
         align-items: center ;
@@ -153,13 +161,15 @@
 
     /* <!-- 5. Btn-login-active --> */
 
-    .login-btn-login{
+    .login-btn-login,
+    .regist-btn-regist{
         width: auto;
         margin: 20px 10px;
 
         transition: font-size 0.5s ease-in-out;
 
-        .active-btn-login{
+        .active-btn-login,
+        .active-btn-registration{
             background-color: rgb(81,106,61) ;
             width:150px;
             padding: 8px;

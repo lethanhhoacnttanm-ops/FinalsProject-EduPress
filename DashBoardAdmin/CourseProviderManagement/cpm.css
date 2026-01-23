@@ -306,6 +306,16 @@ body, html{
             border: 2px solid black;
 
         }
+
+        .table-list__body-cpm{
+            padding: 14px;
+
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+
+            border: 2px solid black
+        }
         
     }
 }
