@@ -35,6 +35,10 @@ function isProviderAccount(){
     localStorage.setItem('AccountProvider', JSON.stringify(providerAccount));
 }
 
+function transToPage(id){
+    window.location.href = id 
+}
+ 
 
 
 function login(){
@@ -76,6 +80,42 @@ function login(){
 
 
 }
+
+function registration() {
+    
+    const username = document.getElementById('1').value.trim();
+    const email = document.getElementById('2').value.trim();
+    const password = document.getElementById('3').value;
+    const confirmPass = document.getElementById('4').value;
+
+   
+    if (password !== confirmPass) {
+        alert("Mật khẩu xác nhận không khớp!");
+        return;
+    }
+
+  
+    const newProviderRequest = {
+        id: "PROV_" + Date.now(),      
+        title: "Đăng ký Provider",     
+        name: username,                
+        email: email,             
+        password: password,
+        status: "pending",             
+        timestamp: new Date().toLocaleString('vi-VN')
+    };
+
+    
+    let list = JSON.parse(localStorage.getItem('myListProvider')) || [];
+    list.push(newProviderRequest);
+    localStorage.setItem('myListProvider', JSON.stringify(list));
+
+    alert("Đơn đăng ký của bạn đã được gửi thành công!");
+
+    window.location.href = "../form-login-all.html  "
+}
+
+
 
 isAdminAccount();
 isProviderAccount();

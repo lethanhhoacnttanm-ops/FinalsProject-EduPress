@@ -440,7 +440,8 @@ body, html{
              
         } 
 
-          .table-body-render-courses-cm{
+          .table-body-render-courses-cm,
+          .table-body-render-coursesPending-cm-pending{
                 gap: 10px;
 
                 border: 2px solid black;
@@ -457,11 +458,7 @@ body, html{
 
                 text-align: center;
 
-                    .table-body {
-                        display: flex;
-                        gap: 10px;
-                        justify-content: center;
-                        align-items: center;
+                    
 
 
                         .btn-approve, .btn-reject {
@@ -505,7 +502,7 @@ body, html{
                         .btn-approve:active, .btn-reject:active {
                             transform: translateY(0);
                         }
-                    }
+                    
 
 
                 

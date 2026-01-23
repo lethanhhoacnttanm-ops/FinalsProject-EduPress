@@ -5,57 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browse New Supplier</title>
     <link rel="stylesheet" href="bns.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
     
-    <div class="FORM-main">
-
-        <div class="FORM-regisforNCC">
-            <div class="FORM-title">
-                <h1>Registration</h1>
-            </div>
-            
-            <div class="FORM-container">
-                <h3 class="FORM-label">Thông tin định danh</h3>
-                <div class="FORM-input">
-                    <input type="text" placeholder="Tên cá nhân/tổ chức, mã số thuế (nếu có)">
-                </div>
-
-                <h3 class="FORM-label">Hồ sơ năng lực</h3>
-                <div class="FORM-input">
-                    <input type="text" placeholder="Link portfolio, bằng cấp (file đính kèm)...">
-                </div>
-
-                <h3 class="FORM-label">Thông tin khóa học dự kiến</h3>
-                <div class="FORM-input">
-                    <input type="text" placeholder="Tên lĩnh vực, đề cương sơ bộ.">
-                </div>
-
-                <h3 class="FORM-label">Thông tin thanh toán</h3>
-                <div class="FORM-input">
-                    <input type="text" placeholder="Tên ngân hàng, số tài khoản, chủ tài khoản.">
-                </div>
-            </div>
-
-            <div class="FORM-public ">
-                <button onclick="toggleSubMenu(`done-mess`)">Public FORM</button>
-            </div>
-
+    <div class="main-container-pending-bns">
+        
+        <div class="pending-backPreviousPage">
+            <a href="../CourseProviderManagement/cpm.html"><i class="fa-solid fa-arrow-left"></i></a>
         </div>
 
-
-        <div id="done-mess" class="done-mess sub-panel" style="display: none;">
-            <h2>Done!!!</h2>
-
-            <div class="go-forward">
-                <a href="../CourseProviderManagement/cpm.html">Đi đến trang 1 ->></a>
-            </div>
+        <div class="pending-title-bns">
+            <!-- main title course management  -->
+            <h1>List of suppliers awaiting approval</h1>
         </div>
 
+        <div class="pending-info-details-bns" id="admin-table-view">
+            <!-- 1.  couting asc -->
+            <div class="info-bns">
+                  <h3>#</h3>
+            </div>
+            <!-- 2. id user -->
+            <div class="info-bns">
+                 <h3>ID</h3>
+            </div>
+            <!-- 3. title -->
+            <div class="info-bns">
+                 <h3>TITLE</h3>
+            </div>
+
+            <!-- 4. username -->
+            <div class="info-bns">
+                 <h3>Username</h3>
+            </div>
+
+            <!-- 5. email -->
+            <div class="info-bns">
+                 <h3>Email</h3>
+            </div>
+
+            <!-- 6. Password -->
+            <div class="info-bns">
+                 <h3>Password</h3>
+            </div>
+
+            <!-- 7. Timestamp -->
+            <div class="info-bns">
+                 <h3>Timestamp</h3>
+            </div>
+
+            <!-- 8. Operator -->
+            <div class="info-bns">
+                 <h3>Operator</h3>
+            </div>
+
+
+            <!-- body table -->
+            <div id="table-body-render-coursesPending-bns-pending" style="display: contents;"></div>
+        </div>
     </div>
 
     
 
-    <script src="../dashboard.js"></script>
+    <script src="./bns.js"></script>
 </body>
 </html>
