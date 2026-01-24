@@ -322,3 +322,105 @@ body, html{
 
 
 }
+
+
+@media (max-width: 1024px) {
+    .pending-title-bns h1 {
+        font-size: 2rem;
+    }
+
+    .FORM-container {
+        grid-template-columns: 200px 1fr;
+        gap: 15px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container-pending-bns {
+        margin: 0 10px;
+        padding: 10px;
+    }
+
+    .pending-title-bns h1 {
+        font-size: 1.4rem;
+        padding: 15px;
+    }
+
+    .pending-info-details-bns {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid #000;
+        background: #fff;
+    }
+
+    #table-body-render-coursesPending-bns-pending {
+        display: contents !important;
+    }
+
+    .info-bns, 
+    .table-body-render-courses-bns {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 10px;
+        border: 1px solid #333;
+        font-size: 13px;
+        min-height: 70px;
+        vertical-align: top;
+    }
+
+    /* Định dạng độ rộng cột */
+    .info-bns:nth-child(1),
+    .table-body-render-courses-bns:nth-child(8n+1) { min-width: 50px; }
+
+    .info-bns:nth-child(2),
+    .table-body-render-courses-bns:nth-child(8n+2) { min-width: 130px; }
+
+    .info-bns:nth-child(3),
+    .table-body-render-courses-bns:nth-child(8n+3) { min-width: 150px; }
+
+    .info-bns:nth-child(4),
+    .table-body-render-courses-bns:nth-child(8n+4) { min-width: 140px; }
+
+    .info-bns:nth-child(5),
+    .table-body-render-courses-bns:nth-child(8n+5) { min-width: 200px; }
+
+    .info-bns:nth-child(6),
+    .table-body-render-courses-bns:nth-child(8n+6) { min-width: 120px; }
+
+    .info-bns:nth-child(7),
+    .table-body-render-courses-bns:nth-child(8n+7) { min-width: 180px; }
+
+    .info-bns:nth-child(8),
+    .table-body-render-courses-bns:nth-child(8n+8) { min-width: 160px; }
+
+    /* Form đăng ký NCC */
+    .FORM-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .FORM-label {
+        text-align: left;
+    }
+
+    .done-mess {
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        top: 150px;
+    }
+
+    .done-mess h2 {
+        font-size: 4rem;
+    }
+
+    .btn-approve, .btn-reject {
+        padding: 6px 10px;
+        font-size: 12px;
+        flex-direction: column;
+    }
+}

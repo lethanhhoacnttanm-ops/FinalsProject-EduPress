@@ -554,3 +554,179 @@
          }
     }
 }
+
+
+
+
+@media (max-width: 1024px) {
+    .header-lmp-container {
+        grid-template-columns: 1fr 2fr 1fr; 
+    }
+
+    .header-lmp-title h1 {
+        font-size: 1.5rem;
+    }
+
+    .section-lmp-container {
+        grid-template-columns: 200px 1fr; 
+    }
+
+    .section-lcep-container__main-content {
+        grid-template-rows: auto auto; 
+        height: auto;
+    }
+
+    .main-containt__allinfo {
+        grid-template-columns: 1.5fr 1fr; 
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* 1. Xử lý Header */
+    .header-lmp-container {
+        display: flex; 
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        position: relative; 
+    }
+
+    .header-lmp-logo img {
+        width: 40px;
+    }
+
+    .header-lmp-title h1 {
+        font-size: 1.2rem;
+    }
+
+    .header-lmp-interact {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    
+    .section-lmp-container {
+        grid-template-columns: 1fr; 
+        height: auto;
+    }
+
+  
+    .section-lmp-container__navbar-main {
+        display: flex;
+        overflow-x: auto; 
+        padding: 10px;
+        white-space: nowrap;
+        background-color: #222;
+        line-height: normal; 
+        gap: 10px;
+    }
+
+    .navbar-main__transToListBasicInfor,
+    .navbar-main__transToLECP,
+    .navbar-main__transToListLessonAll {
+        margin: 0 !important;
+        flex: 0 0 auto; 
+    }
+
+    .section-lmp-container__navbar-main button {
+        padding: 10px 15px !important;
+        font-size: 14px;
+    }
+
+    
+    .section-lmp-container__translatePage {
+        min-height: 70vh;
+        z-index: 1; 
+    }
+
+    .translatePage__ListBasicInfor,
+    .translatePage__ListLessonAll {
+        position: relative !important; 
+        height: auto !important;
+        padding: 20px;
+    }
+
+   
+    .main-containt__allinfo {
+        grid-template-columns: 1fr !important;
+    }
+
+    .video-container {
+        aspect-ratio: 16/9;
+    }
+
+
+
+
+
+        /*LCEP  */
+
+       
+    .header-lcep-container {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .header-lcep-title h1 {
+        font-size: 1.1rem; 
+    }
+
+   
+    .section-lcep-container__main-content {
+        display: block; 
+        padding: 10px;
+        height: auto;
+    }
+
+    
+    .main-containt__allinfo {
+        display: flex;
+        flex-direction: column; 
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    
+    .main-content__bassinfo, 
+    .main-content__actionfooter, 
+    .main-content__attachdocument,
+    .main-content__areamedia {
+        grid-template-columns: 1fr !important; 
+        grid-template-rows: auto !important;
+        width: 100%;
+        padding: 15px;
+    }
+
+   
+    .areamedia__playvideo, .areamedia__uploadvideo {
+        padding: 10px 0;
+    }
+
+    .video-container {
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+
+    
+    .actionfooter__action {
+        display: flex;
+        flex-direction: column; 
+        gap: 10px;
+    }
+
+    .actionfooter__action button {
+        width: 100%;
+        padding: 12px;
+    }
+
+   
+    .custom-file-upload, .custom-file-uploadvideo {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+}

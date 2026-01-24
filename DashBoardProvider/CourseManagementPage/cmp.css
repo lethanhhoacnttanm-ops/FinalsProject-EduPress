@@ -940,3 +940,60 @@
                 }
         }
     }
+
+
+    @media (max-width: 1024px) {
+    .header-container-CMP, .header-container-CCEP {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    .section-container-CCEP__TypeingInputInfo {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container-CMP, .header-container-CCEP {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .section-container-CMP__topbar-search {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .topbar-search__searching input {
+        width: 100%;
+        max-width: none;
+    }
+
+    .section-container-CMP__table-list {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .TypeingInputInfo__Input {
+        grid-template-columns: 1fr !important;
+        padding: 15px;
+    }
+
+    .SettingArea__RemoteThreeAction {
+        grid-template-columns: 1fr !important;
+        gap: 10px;
+    }
+
+    .section-container-TypeingInputInfo__Media {
+        grid-template-columns: 1fr !important;
+    }
+
+    .avatarThumbnail__showpic {
+        height: 250px;
+    }
+
+    .avatarThumbnail__uploadpic, .videoIntroduceCourse__uploadvideo {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
