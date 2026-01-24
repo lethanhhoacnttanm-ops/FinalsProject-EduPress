@@ -204,3 +204,58 @@
 
 }
 
+
+
+@media (max-width: 1024px) {
+    .admin__form-login,
+    .provider__form-registration {
+        max-width: 400px;
+        padding: 30px;
+    }
+    
+    .login-title__title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-container-admin,
+    .main-container-provider {
+        padding: 10px;
+    }
+
+    .admin__form-login,
+    .provider__form-registration {
+        max-width: 100%;
+        padding: 20px;
+        border-radius: 0; 
+        box-shadow: none; 
+    }
+
+    .login-authentication {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .regist-title__title {
+        font-size: 22px; 
+    }
+
+    .active-btn-login, 
+    .active-btn-registration {
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .login-btn-login button {
+        width: 100%;
+        padding: 15px; 
+    }
+    
+    .login-title__logo h2 {
+        font-size: 1.2rem;
+    }
+}
+
