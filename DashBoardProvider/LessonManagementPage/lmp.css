@@ -241,7 +241,7 @@
 
                     color: #ffffff;
 
-                    cursor: pointer;
+                    cursor: not-allowed;
                    }
 
                    button:active{
