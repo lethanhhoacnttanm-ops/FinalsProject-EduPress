@@ -46,7 +46,7 @@ function updateStatus(id, newStatus) {
     localStorage.setItem('myListProvider', JSON.stringify(courses));
 
     
-    alert(newStatus === 'active' ? "Đã duyệt thành công!" : "Đã từ chối đơn!");
+    alert(newStatus === 'active' ? "Approved successfully!" : "The request has been denied!");
     renderListProvider(); 
 }
 
