@@ -54,7 +54,7 @@ function saveChanges() {
     document.getElementById('modal-edit-provider').style.display = 'none';
 
     renderProvider(); 
-    alert("Cập nhật thông tin nhà cung cấp thành công!");
+    alert("Supplier information updated successfully!");
 }
 
 function toggleProviderStatus(id) {

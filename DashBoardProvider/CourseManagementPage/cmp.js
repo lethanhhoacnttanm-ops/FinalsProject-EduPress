@@ -1,38 +1,21 @@
-// --------- 🔴 Course Management -------------
-// const picture = "../img/kh-laptirnh.png";
-
-// const listcourses = [
-//     { 
-//         id: 1, 
-//         thumbnails: {
-//             picture: picture, 
-//             nameCourse: "Khóa học lập trình JavaScript", 
-//         },
-//         Cashier: 500, 
-//         quantityStu: 30, 
-//         status: "active",
-//         CreateDate: "27-12-2025"
-//     },
-// ];
-
 function renderListCourse() {
     const tableBody = document.getElementById('table-body-render-CMP');
     
     if (!tableBody){
-        console.error("Không tìm thấy thẻ có ID: table-body-render-CMP");
+        console.error("ID tag not found: table-body-render-CMP");
         return;
     }; 
 
     const dataToRender = JSON.parse(localStorage.getItem('myCourses')) || [];
 
     const html = dataToRender.map((item, index) => {
-        // Chuẩn bị dữ liệu
+        
         const thumb = item.thumbnails?.picture || 'https://via.placeholder.com/120x70?text=No+Image';
-        const name = item.title || "Chưa đặt tên";
+        const name = item.title || "Not yet named";
         const price = item.basePrice || 0;
         const quantity = item.quantityStu || 0;
         const status = item.status || 'pending';
-        const createDate = item.createDate || item.date || '---'; // Lấy ngày tạo từ đối tượng
+        const createDate = item.createDate || item.date || '---'; 
         const lessonCount = item.lessons ? item.lessons.length : 0;
 
         return `
@@ -53,7 +36,6 @@ function renderListCourse() {
         <div class="table-list__body">
             <span class="status-badge status-${status}">
                 ${status === 'pending' ? 'Pending approval' : 
-                //   status === 'lesson_pending' ? 'Bài mới chờ duyệt' :
                   status === 'active' ? 'Published' : 
                   status === 'rejected' ? 'Rejected' : 'Bản nháp'}
             </span>
@@ -83,24 +65,23 @@ function renderListCourse() {
 
     tableBody.innerHTML = html;
 }
-// document.addEventListener('DOMContentLoaded', renderListCourse);
 renderListCourse();
 
-// Xoa khoa hoc - CMP
+
 function deleteCourse(id) {
-    if (confirm("Bạn có chắc chắn muốn xóa khóa học này không?")) {
+    if (confirm("Are you sure you want to delete this course?")) {
+
         let courses = JSON.parse(localStorage.getItem('myCourses')) || [];
-        // Lọc bỏ item có id trùng
+
         courses = courses.filter(item => item.id !== id);
-        // Lưu lại vào kho
+
         localStorage.setItem('myCourses', JSON.stringify(courses));
-        // Vẽ lại bảng ngay lập tức
+
         renderListCourse();
     }
 }
 
 function editCourse(id) {
-    // Chuyển hướng và đính kèm tham số id=...
     window.location.href = `./CourseCreate&EditPage/ccep.html?id=${id}`;
 }
 
@@ -118,25 +99,21 @@ function previewPicture(input) {
     const overlay = document.querySelector('.uploadoverlay');
 
     if (file) {
-        // 1. Kiểm tra định dạng (phải là image/)
         if (!file.type.startsWith('image/')) {
-            alert("Vui lòng chọn định dạng ảnh (jpg, png)!");
+            alert("Please choose the image format (jpg, png)!");
             return;
         }
 
-        // 2. Sử dụng FileReader để đọc file thành chuỗi Base64
         const reader = new FileReader();
         
         reader.onload = function(e) {
-            const base64Data = e.target.result; // Đây là chuỗi dài chứa toàn bộ dữ liệu ảnh
+            const base64Data = e.target.result; 
             
-            // Hiển thị ảnh lên khung preview
             pictureShow.src = base64Data;
             pictureShow.style.display = 'block';
             if (overlay) overlay.style.opacity = '0';
             
-            // MẸO: Lưu chuỗi này vào một thuộc tính ẩn hoặc biến toàn cục 
-            // để khi nhấn "Send Request" bạn có dữ liệu để lưu.
+            
             pictureShow.dataset.base64 = base64Data; 
         };
 
@@ -163,17 +140,14 @@ function previewVideo(input) {
     const videoSource = document.getElementById('video-source');
 
     if (file) {
-        // 1. Kiểm tra định dạng có phải video không
         if (!file.type.startsWith('video/')) {
-            alert("Vui lòng chọn một định dạng video hợp lệ!");
+            alert("Please select a valid video format!");
             return;
         }
 
-        // 2. Tạo URL tạm thời để xem trước video
         const fileURL = URL.createObjectURL(file);
         videoSource.src = fileURL;
         
-        // 3. Load lại và phát video
         videoShow.load(); 
         videoShow.style.display = 'block';
     }
@@ -184,8 +158,8 @@ function resetVideo() {
     const videoShow = document.getElementById('video-show');
     const videoSource = document.getElementById('video-source');
 
-    input.value = ""; // Reset input
-    videoSource.src = ""; // Xóa nguồn video
+    input.value = ""; 
+    videoSource.src = ""; 
     videoShow.load();
 }
 
@@ -231,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 picturePreview.dataset.base64 = course.thumbnails.picture;
             }
             
-            // Đổi tiêu đề nút bấm cho chuyên nghiệp
+            
             document.getElementById('btn-submit-course').innerText = "Update Course";
         }
     }
@@ -251,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Kiểm tra dữ liệu (Validation)
             if (!nameCourse || !price || (!editId && !document.getElementById('choosepic').files[0]) || !name) {
-                alert("Vui lòng điền đầy đủ thông tin!");
+                alert("Please fill in all the information!");
                 return;
             }
 
@@ -273,9 +247,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             picture: picturePreview.dataset.base64 || existingCourses[index].thumbnails.picture,
                             video: document.getElementById('video-upload').files[0]?.name || existingCourses[index].thumbnails.video
                         },
-                        status: 'pending' // Gửi lại cho Admin duyệt bản mới
+                        status: 'pending' 
                     };
-                    alert("Cập nhật thành công!");
+                    alert("Update successful!");
                 }
             } else {
                 // CHẾ ĐỘ TẠO MỚI
@@ -296,11 +270,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     quantityStu: 0
                 };
                 existingCourses.push(newCourse);
-                alert("Gửi yêu cầu tạo mới thành công!");
+                alert("New creation request submitted successfully!");
             }
 
             localStorage.setItem('myCourses', JSON.stringify(existingCourses));
-            window.location.href = "../cmp.html"// Chuyển về trang danh sách
+            window.location.href = "../cmp.html"
         });
     }
 });

@@ -39,7 +39,7 @@ function login(){
         alert("This account does not exist.");
         return;
       }
-
+S
       if(isAdmin){
     
           if(password === getDataAdmin.password){

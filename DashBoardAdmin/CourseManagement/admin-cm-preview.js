@@ -37,7 +37,7 @@ function updateStatus(id, newStatus) {
             return { ...c, status: newStatus };
         }
         return c;
-    });
+    });S
     
     localStorage.setItem('myCourses', JSON.stringify(courses));
     
@@ -51,11 +51,11 @@ function viewCourseDetail(id) {
 
     if (course) {
         alert(`
-            CHI TIẾT KHÓA HỌC:
-            - Tên: ${course.title}
-            - Giá: ${Number(course.basePrice).toLocaleString()}đ
-            - Ngày tạo: ${course.createDate}
-            - Mô tả: ${course.shortDescription}
+            COURSE DETAILS:
+            - Name: ${course.title}
+            - Price: ${Number(course.basePrice).toLocaleString()}đ
+            - Created Date: ${course.createDate}
+            - Description: ${course.shortDescription}
         `);
     }
 }
