@@ -1,20 +1,4 @@
 
-const forgotPasswordLink = document.getElementById('forgot-pw');
-
-forgotPasswordLink.addEventListener('click', function(event) {
-    event.preventDefault();
-
-    let email = prompt("Vui lòng nhập Email của bạn để lấy lại mật khẩu:");
-
-    if (email) {
-        if (email.includes("@")) {
-            alert("Hệ thống đã gửi link lấy lại mật khẩu đến: " + email);
-        } else {
-            alert("Email không hợp lệ, vui lòng thử lại!");
-        }
-    }
-});
-
 function isAdminAccount(){
     
     const adminAccount = {
@@ -96,7 +80,7 @@ function registration() {
 
   
     const newProviderRequest = {
-        id: "PROV_" + Date.now(),      
+        id: "ID_" + Date.now(),      
         title: "Đăng ký Provider",     
         name: username,                
         email: email,             
