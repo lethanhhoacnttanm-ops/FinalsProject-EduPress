@@ -6,6 +6,10 @@
         <title>Khóa học đã đăng ký</title>
         <link rel="stylesheet" href="styles/main.css" />
         <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+        <link
             href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
@@ -14,8 +18,16 @@
         <!-- header -->
         <div class="header">
             <div class="container">
+                <!-- Hamburger menu button (mobile only) -->
+                <button class="hamburger" id="hamburgerBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
                 <a class="logo" href="courses.html">EduPress</a>
-                <ul class="menu">
+                
+                <ul class="menu" id="mobileMenu">
                     <li><a href="courses.html">Home</a></li>
                     <li><a href="mycourses.html">My Courses</a></li>
                     <li><a href="#">Blog</a></li>

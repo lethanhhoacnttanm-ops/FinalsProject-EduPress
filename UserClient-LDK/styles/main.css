@@ -35,6 +35,8 @@ body {
     font-weight: bold;
     color: #ff6b35;
     text-decoration: none;
+    flex: 1;
+    text-align: center;
 }
 
 .menu {
@@ -53,6 +55,56 @@ body {
 
 .menu a:hover {
     color: #ff6b35;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    gap: 6px;
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.hamburger span {
+    width: 24px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 0;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0;
+}
+
+.hamburger span:nth-child(2) {
+    top: 10px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 20px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px;
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 10px;
 }
 
 .btn-login {
@@ -329,11 +381,22 @@ body {
     gap: 40px;
     flex-wrap: wrap;
     padding: 40px 0;
+    position: relative;
 }
 
 .content-left {
     flex: 3;
     min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.courses-top {
+    margin-bottom: 40px;
+}
+
+.courses-container {
+    flex: 1;
 }
 
 .sidebar-right {
@@ -429,7 +492,6 @@ body {
     color: #ff6b35;
     cursor: pointer;
 }
-
 /* courses listing */
 
 /* === GRID VIEW  === */
@@ -628,7 +690,12 @@ body {
     border-color: #ff6b35;
 }
 
-.layout-btn:hover:not(.active) {
+/* Hide layout buttons on mobile */
+@media (max-width: 576px) {
+    .layout-buttons {
+        display: none;
+    }
+}.layout-btn:hover:not(.active) {
     background: #f0f0f0;
 }
 
@@ -858,6 +925,17 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-direction: column;
+    position: relative;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-direction: row;
+    text-align: center;
+    cursor: pointer;
 }
 
 .btn-logout {
@@ -871,9 +949,565 @@ body {
     cursor: pointer;
     transition: background 0.3s;
     position: absolute;
-    right: 10px;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    display: none;
+    white-space: nowrap;
+    z-index: 100;
+}
+
+.btn-logout.show {
+    display: block;
 }
 
 .btn-logout:hover {
     background: #555;
 }
+
+/* RESPONSIVE  */
+
+/* MOBILE (< 576px) */
+@media (max-width: 576px) {
+    .container {
+        width: 95%;
+    }
+
+    .header .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 0;
+    }
+
+    .hamburger {
+        display: flex;
+        order: 0;
+        flex-shrink: 0;
+    }
+
+    .logo {
+        font-size: 22px;
+        flex: 1;
+        text-align: center;
+        order: 1;
+    }
+
+    .menu {
+        position: fixed;
+        top: 65px;
+        left: -200px;
+        width: 200px;
+        height: calc(100vh - 65px);
+        margin-top: 10px;
+        flex-direction: column;
+        background: white;
+        padding: 20px;
+        gap: 15px;
+        z-index: 999;
+        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+        border: 1px solid #ddd;
+        border-left: none;
+        transition: left 0.3s ease, visibility 0.3s ease;
+        display: flex;
+        visibility: hidden;
+        overflow-y: auto;
+    }
+
+    .menu.active {
+        left: 0;
+        visibility: visible;
+    }
+
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .menu-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .menu a {
+        font-size: 16px;
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .user-menu {
+        order: 2;
+        flex-direction: column;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    .btn-login {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .register-box, .login-box {
+        padding: 25px 20px;
+        margin: 20px auto;
+        border-radius: 15px;
+        max-width: 100%;
+    }
+
+    .register-box h3, .login-box h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .form-input, .register-box input, .login-box input, .password-wrapper input {
+        padding: 12px 15px;
+        margin-bottom: 12px;
+        font-size: 14px;
+    }
+
+    .register-box button, .login-box button {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    /* Courses Section - MOBILE*/
+    .courses-wrapper {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 0;
+    }
+
+    .content-left {
+        flex: 100%;
+        gap: 15px;
+        position: relative;
+    }
+
+    .courses-top {
+        margin-bottom: 200px;
+        z-index: 2;
+        position: relative;
+    }
+
+    .courses-container {
+        flex: 100%;
+        z-index: 1;
+        position: relative;
+        margin-top: 240px;
+    }
+
+    /* Sidebar positioned between courses-top and courses-container */
+    .sidebar-right {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 2;
+    }
+
+    .filter-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+        gap: 12px;
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #eee;
+    }
+
+    .filer-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .filer-group h4 {
+        font-size: 13px;
+        font-weight: bold;
+        color: #333;
+        margin: 0 0 8px 0;
+        padding: 0;
+    }
+
+    .filer-group label {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        height: auto;
+        color: #555;
+        cursor: pointer;
+        font-size: 13px;
+    }
+
+    .filer-group label input {
+        width: 14px;
+        height: 14px;
+        margin: 0;
+    }
+
+    .courses-top {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .courses-top h1 {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .searchbar-and-layout {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .searchbar {
+        width: 100%;
+    }
+
+    .searchbar input {
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 10px;
+    }
+
+    .layout-buttons {
+        display: none;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .layout-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+        flex: 1;
+        text-align: center;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .course-card {
+        border: 1px solid #ddd;
+    }
+
+    .course-card img {
+        height: 180px;
+    }
+
+    .course-card .content {
+        padding: 12px;
+    }
+
+    .course-card h3 {
+        font-size: 16px;
+    }
+
+    .course-card .category {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+
+    .course-card .instructor {
+        font-size: 12px;
+    }
+
+    .course-card .meta {
+        font-size: 12px;
+    }
+
+    .course-card .price {
+        font-size: 18px;
+    }
+
+    .course-card .btn-view {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 30px 0 25px;
+    }
+
+    .footer-content {
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .footer-content > * {
+        min-width: auto;
+        max-width: 100%;
+    }
+
+    .footer-logo h5 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .footer-logo p {
+        font-size: 12px;
+    }
+
+    .footer-links h6 {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .footer-links p {
+        font-size: 12px;
+    }
+
+    /* User Menu */
+    .user-menu {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .btn-logout {
+        position: absolute;
+        right: 0;
+        padding: 6px 12px;
+        font-size: 12px;
+        top: 100%;
+        margin-top: 8px;
+    }
+
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+
+    .user-name {
+        display: none;
+        font-size: 12px;
+    }
+}
+
+/* TABLET (576px - 992px) */
+@media (min-width: 576px) and (max-width: 992px) {
+    .container {
+        width: 95%;
+        max-width: 960px;
+    }
+
+    /* Header */
+    .header .container {
+        gap: 20px;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .logo {
+        font-size: 28px;
+        flex: none;
+        text-align: left;
+    }
+
+    .menu {
+        display: flex;
+        position: static;
+        background: none;
+        padding: 0;
+        gap: 40px;
+        box-shadow: none;
+        border: none;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .menu a {
+        font-size: 16px;
+        padding: 0;
+        border-bottom: none;
+    }
+
+    .user-menu {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .register-box, .login-box {
+        padding: 40px 35px;
+        border-radius: 18px;
+    }
+
+    .register-box h3, .login-box h3 {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+
+    .form-input, .register-box input, .login-box input, .password-wrapper input {
+        padding: 15px 18px;
+        margin-bottom: 14px;
+        font-size: 15px;
+    }
+
+    .register-box button, .login-box button {
+        padding: 16px;
+        font-size: 17px;
+    }
+
+    /* Courses Section - TABLET */
+    .courses-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .content-left {
+        flex: 2;
+        min-width: 250px;
+        gap: 30px;
+    }
+
+    .courses-top {
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    .courses-container {
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .sidebar-right {
+        flex: 1;
+        min-width: 250px;
+        position: static;
+        padding-top: 0;
+        margin-bottom: 0;
+    }
+
+    /* Courses Grid */
+    .courses-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .course-card img {
+        height: 200px;
+    }
+
+    .course-card .content {
+        padding: 14px;
+    }
+
+    .course-card h3 {
+        font-size: 17px;
+    }
+
+    /* User Info */
+    .user-avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+    }
+
+    .user-name {
+        font-size: 15px;
+    }
+
+    /* Searchbar */
+    .searchbar input {
+        min-width: 220px;
+    }
+
+    .layout-buttons {
+        display: none;
+        gap: 8px;
+    }
+}
+
+/* DESKTOP (> 992px)*/
+@media (min-width: 992px) {
+    .header .container {
+        gap: 60px;
+    }
+
+    .logo {
+        font-size: 32px;
+        flex: none;
+        text-align: left;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        position: static;
+        background: none;
+        padding: 0;
+        gap: 60px;
+        box-shadow: none;
+        border: none;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .menu a {
+        font-size: 18px;
+        padding: 0;
+        border-bottom: none;
+    }
+
+    .user-menu {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .btn-login {
+        padding: 12px 32px;
+        font-size: 16px;
+        order: auto;
+    }
+
+    .sidebar-right {
+        position: static;
+        padding-top: 0;
+        margin-bottom: 0;
+    }
+
+    .courses-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 40px;
+        padding: 40px 0;
+    }
+
+    .content-left {
+        gap: 40px;
+    }
+
+    .courses-top {
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    .courses-container {
+        flex: 1;
+        min-width: 300px;
+    }
+}
+

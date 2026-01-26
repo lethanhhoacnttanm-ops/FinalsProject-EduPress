@@ -1,3 +1,4 @@
+
 // Hidden/show password functionality
 function togglePassword(inputId) {
     const input = document.getElementById(inputId);
@@ -135,9 +136,24 @@ document.addEventListener("DOMContentLoaded", function () {
         <button id="logoutBtn" class="btn-logout">Logout</button>
         `;
 
-        //logout handling
+        const userInfo = userMenu.querySelector('.user-info');
         const logoutBtn = document.getElementById("logoutBtn");
-        logoutBtn.addEventListener("click", function () {
+
+        // Toggle logout button visibility on user info click
+        userInfo.addEventListener('click', function () {
+            logoutBtn.classList.toggle('show');
+        });
+
+        // Close logout button when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!userMenu.contains(event.target)) {
+                logoutBtn.classList.remove('show');
+            }
+        });
+
+        // Logout handling
+        logoutBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
             localStorage.removeItem("currentUser");
             alert("Bạn đã đăng xuất.");
             window.location.href = "login.html";
@@ -553,3 +569,43 @@ if (myCoursesList) {
         }
     }
 }
+
+// Hamburger Menu Toggle
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOverlay = document.getElementById('menuOverlay');
+
+    // Create overlay if it doesn't exist
+    if (!menuOverlay) {
+        menuOverlay = document.createElement('div');
+        menuOverlay.id = 'menuOverlay';
+        menuOverlay.className = 'menu-overlay';
+        document.body.appendChild(menuOverlay);
+    }
+
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', function () {
+            hamburgerBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        });
+
+        // Close menu when clicking on overlay
+        menuOverlay.addEventListener('click', function () {
+            hamburgerBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        });
+
+        // Close menu when clicking on a link
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                hamburgerBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+            });
+        });
+    }
+});
