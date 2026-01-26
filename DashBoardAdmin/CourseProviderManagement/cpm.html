@@ -82,8 +82,40 @@
 
             <!-- body table -->
             <div id="table-body-render" style="display: contents;"></div>
+
+            
         </div>
     </div>
+
+    <!-- edit hidden ▶️ -->
+
+            <div id="modal-edit-provider" class="modal-admin-overlay" style="display:none;">
+                <div class="modal-admin-card">
+                    <div class="modal-admin-header">
+                        <h3>Edit Provider</h3>
+                        <span class="id-badge">ID: <span id="display-id">#123</span></span>
+                    </div>
+                    
+                    <div class="modal-admin-body">
+                        <input type="hidden" id="edit-id">
+                        
+                        <div class="form-group">
+                            <label for="edit-name">Provider name</label>
+                            <input type="text" id="edit-name" placeholder="Enter new name...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="edit-email">Contact email</label>
+                            <input type="email" id="edit-email" placeholder="example@gmail.com">
+                        </div>
+                    </div>
+
+                    <div class="modal-admin-footer">
+                        <button class="btn-save" onclick="saveChanges()">Save changes</button>
+                        <button class="btn-cancel" onclick="document.getElementById('modal-edit-provider').style.display='none'">Cancel</button>
+                    </div>
+                </div>
+            </div>
 
 
     <script src="./cpm.js"></script>
