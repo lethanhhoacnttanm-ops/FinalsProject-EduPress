@@ -3,16 +3,16 @@ function renderListProvider() {
     const area = document.getElementById('table-body-render-coursesPending-bns-pending');
     if (!area) return;
 
-    const courses = JSON.parse(localStorage.getItem('myListProvider')) || [];
+    const provider = JSON.parse(localStorage.getItem('myListProvider')) || [];
 
-    const pendingCourses = courses.filter(c => c.status === "Đang chờ duyệt" || c.status === "pending");
+    const pendingProvider = provider.filter(c => c.status === "pending");
 
-    if (pendingCourses.length === 0) {
+    if (pendingProvider.length === 0) {
         area.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 20px;">Hiện không có khóa học nào chờ duyệt.</div>';
         return;
     }
 
-    area.innerHTML = pendingCourses.map((course, index) => {
+    area.innerHTML = pendingProvider.map((course, index) => {
         
         return `
             <div class="table-body-render-courses-bns">${index + 1}</div>

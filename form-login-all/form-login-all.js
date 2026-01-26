@@ -39,7 +39,7 @@ function login(){
         alert("This account does not exist.");
         return;
       }
-S
+
       if(isAdmin){
     
           if(password === getDataAdmin.password){
@@ -94,7 +94,7 @@ function registration() {
     list.push(newProviderRequest);
     localStorage.setItem('myListProvider', JSON.stringify(list));
 
-    alert("Đơn đăng ký của bạn đã được gửi thành công!");
+    alert("Your application has been successfully submitted!");
 
     window.location.href = "../form-login-all.html  "
 }
